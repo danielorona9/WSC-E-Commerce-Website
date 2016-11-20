@@ -60,16 +60,19 @@ namespace WSC_E_Commerce_Website.Models
         public string Password { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "0:MM-dd-yyyy", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Registered Date")]
         public DateTime RegisteredDate { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "0:MM-dd-yyyy", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Modified Date")]
         public DateTime ModifiedDate { get; set; }
 
         [Display(Name = "Locked")]
         public bool Locked { get; set; }
+
+        //conncted tables that are one to many
+        public virtual ICollection<BillingInfo> BillingInfo { get; set; }
     }
 }
