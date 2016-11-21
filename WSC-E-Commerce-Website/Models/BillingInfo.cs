@@ -13,6 +13,8 @@ namespace WSC_E_Commerce_Website.Models
 
         public int CustomerID { get; set; }  
 
+        public int CreditCardTypeID { get; set; }
+
         [Required(ErrorMessage = "Enter Credit Card number")]
         [StringLength(16)]
         [Display(Name = "Credit Card Number")]
@@ -25,6 +27,6 @@ namespace WSC_E_Commerce_Website.Models
 
         //connected to tables that are not one to many or FK
         public virtual Customers Customers { get; set; }
-
+        public virtual CreditCardType CreditCardType { get; set; }
     }
 }
