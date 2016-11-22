@@ -72,7 +72,7 @@ namespace WSC_E_Commerce_Website.Models
         [Display(Name = "Locked")]
         public bool Locked { get; set; }
 
-        //conncted tables that are one to many
+        //connected tables that are one to many
         public virtual ICollection<BillingInfo> BillingInfo { get; set; }
     }
 }
