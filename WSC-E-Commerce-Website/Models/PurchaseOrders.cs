@@ -22,6 +22,7 @@ namespace WSC_E_Commerce_Website.Models
         public virtual Customers Customers { get; set; }
 
         public virtual ICollection<Billing> Billing { get; set; }
+        public virtual ICollection<OrderRequest> OrderRequest { get; set; }
     
     }
 }
