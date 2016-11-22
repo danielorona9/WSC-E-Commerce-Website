@@ -203,10 +203,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Billing.cs" />
     <Compile Include="Models\BillingInfo.cs" />
+    <Compile Include="Models\CreditCardType.cs" />
     <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobTypes.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MediaTypes.cs" />
+    <Compile Include="Models\OrderRequest.cs" />
+    <Compile Include="Models\OrderType.cs" />
+    <Compile Include="Models\ProductCatalog.cs" />
+    <Compile Include="Models\PurchaseOrders.cs" />
+    <Compile Include="Models\PurchaseOrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -15,7 +15,7 @@ namespace WSC_E_Commerce_Website.Models
         public int StockAvailable { get; set; }
         public string ProductImage { get; set; }
 
-        public virtual JobType JobType { get; set; }
-        public virtual MediaType MediaType { get; set; }
+        public virtual JobTypes JobType { get; set; }
+        public virtual MediaTypes MediaType { get; set; }
     }
 }
