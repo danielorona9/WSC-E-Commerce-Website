@@ -7,7 +7,7 @@ using WSC_E_Commerce_Website.Models;
 
 namespace WSC_E_Commerce_Website.DAL
 {
-    public class EcommerceStoreDB_Context
+    public class EcommerceStoreDB_Context : DbContext
     {
         public DbSet<CreditCardType> CreditCardType {get; set;}
         public DbSet<BillingInfo> BillingInfo { get; set; }
