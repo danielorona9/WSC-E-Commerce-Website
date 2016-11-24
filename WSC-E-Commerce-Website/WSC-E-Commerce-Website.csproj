@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BillingController.cs" />
+    <Compile Include="Controllers\BillingInfoController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -291,6 +292,11 @@
     <Content Include="Views\Billing\Details.cshtml" />
     <Content Include="Views\Billing\Edit.cshtml" />
     <Content Include="Views\Billing\Index.cshtml" />
+    <Content Include="Views\BillingInfo\Create.cshtml" />
+    <Content Include="Views\BillingInfo\Delete.cshtml" />
+    <Content Include="Views\BillingInfo\Details.cshtml" />
+    <Content Include="Views\BillingInfo\Edit.cshtml" />
+    <Content Include="Views\BillingInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
