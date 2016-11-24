@@ -8,8 +8,10 @@ namespace WSC_E_Commerce_Website.Models
     public class JobTypes
     {
         public int JobTypeID { get; set; }
+
         public string JobTypeName { get; set; }
 
+        //connected tables that are on the many side
         public virtual ICollection<ProductCatalog> ProductCatalog { get; set; }
     }
 }
