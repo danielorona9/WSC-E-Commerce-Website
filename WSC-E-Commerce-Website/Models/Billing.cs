@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace WSC_E_Commerce_Website.Models
 {
+    [Table("Billing")]
     public class Billing
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Billing Number")]
         public int BillingID { get; set; }
 
+        [ForeignKey("PurchaseOrders")]
         public int PurchaseOrdersID { get; set; }
 
         [Display(Name ="Due Date")]
