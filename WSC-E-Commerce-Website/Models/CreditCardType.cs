@@ -14,7 +14,7 @@ namespace WSC_E_Commerce_Website.Models
         [Display(Name = "Credit Card Type")]
         public string CreditCardTypeName { get; set; }
 
-
+        //connected tables on many side
         public virtual ICollection<BillingInfo> BillingInfo { get; set; }
     }
 }
