@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WSC_E_Commerce_Website.Models
 {
+    [Table("Employee")]
     public class Employee
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Employee ID")]
         public int EmployeeID { get; set; }
 
+        [ForeignKey("EmployeeType")]
         public int EmployeeTypeID { get; set; }
 
         [Required (ErrorMessage = "Enter employee first name")]
