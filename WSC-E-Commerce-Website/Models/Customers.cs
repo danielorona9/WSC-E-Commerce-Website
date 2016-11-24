@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace WSC_E_Commerce_Website.Models
 {
+    [Table("Customers")]
     public class Customers
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CustomerID { get; set; }
 
         [Required(ErrorMessage = "Enter your first name")]
@@ -26,7 +30,7 @@ namespace WSC_E_Commerce_Website.Models
         public string Address1 { get; set; }
 
         [Display(Name = "Address2")]
-        [StringLength(50)]
+        [StringLength(30)]
         public string Address2 { get; set; }
 
         [Required(ErrorMessage = "Enter your City")]
@@ -41,11 +45,11 @@ namespace WSC_E_Commerce_Website.Models
 
         [Required(ErrorMessage = "Enter your ZipCode")]
         [Display(Name = "ZipCode")]
-        [StringLength(5)]
         public int Zip { get; set; }
 
         [Required(ErrorMessage = "Enter your Email address")]
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         [StringLength(65)]
         public string Email { get; set; }
 
@@ -56,6 +60,7 @@ namespace WSC_E_Commerce_Website.Models
 
         [Required(ErrorMessage = "Enter a password")]
         [Display(Name = "Password")]
+        [DataType(DataType.Password)]
         [StringLength(30)]
         public string Password { get; set; }
 
