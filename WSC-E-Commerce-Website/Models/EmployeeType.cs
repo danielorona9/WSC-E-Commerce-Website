@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WSC_E_Commerce_Website.Models
 {
+    [Table("EmployeeType")]
     public class EmployeeType
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EmployeeTypeID { get; set; }
 
         [Required(ErrorMessage = "Enter employee title")]
