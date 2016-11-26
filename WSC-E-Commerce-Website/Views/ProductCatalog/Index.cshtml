@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WSC_E_Commerce_Website.Models.ProductCatalog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobType.JobTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaType.MediaTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockAvailable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobType.JobTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediaType.MediaTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockAvailable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductImage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductCatalogID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductCatalogID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductCatalogID })
+        </td>
+    </tr>
+}
+
+</table>

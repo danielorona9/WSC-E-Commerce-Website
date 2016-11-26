@@ -1,0 +1,26 @@
+﻿@model WSC_E_Commerce_Website.Models.JobTypes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobTypes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
