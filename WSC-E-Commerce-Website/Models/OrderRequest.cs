@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WSC_E_Commerce_Website.Models
 {
+    [Table("OrderRequest")]
     public class OrderRequest
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderRequestID { get; set; }
 
+        [ForeignKey("ProductCatalog")]
         public int ProductCatalogID { get; set; }
 
+        [ForeignKey("PurchaseOrders")]
         public int PurchaseOrdersID { get; set; }
 
         [Required(ErrorMessage ="Enter quantity amount")]

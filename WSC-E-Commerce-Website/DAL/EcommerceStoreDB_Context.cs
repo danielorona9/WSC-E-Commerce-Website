@@ -7,8 +7,13 @@ using WSC_E_Commerce_Website.Models;
 
 namespace WSC_E_Commerce_Website.DAL
 {
-    public class EcommerceStoreDB_Context
+    public class EcommerceStoreDB_Context : DbContext
     {
+        public EcommerceStoreDB_Context() : base("EcommerceStoreDB_Context")
+        {
+
+        }
+
         public DbSet<CreditCardType> CreditCardType {get; set;}
         public DbSet<BillingInfo> BillingInfo { get; set; }
         public DbSet<Customers>Customers { get; set; }
@@ -22,6 +27,7 @@ namespace WSC_E_Commerce_Website.DAL
         public DbSet<ProductCatalog>ProductCatalog { get; set; }
         public DbSet<PurchaseOrders>PurchaseOrders { get; set; }
         public DbSet<PurchaseOrderStatus> PurchaseOrderStatus { get; set; }
+
 
     }
 }

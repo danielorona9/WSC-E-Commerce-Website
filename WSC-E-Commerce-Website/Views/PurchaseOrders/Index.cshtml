@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WSC_E_Commerce_Website.Models.PurchaseOrders>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customers.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderType.OrderTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseOrderStatus.StatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deposit)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customers.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderType.OrderTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseOrderStatus.StatusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deposit)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PurchaseOrdersID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PurchaseOrdersID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PurchaseOrdersID })
+        </td>
+    </tr>
+}
+
+</table>

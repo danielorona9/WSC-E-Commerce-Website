@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WSC_E_Commerce_Website.Models.CreditCardType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditCardTypeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditCardTypeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CreditCardTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CreditCardTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CreditCardTypeID })
+        </td>
+    </tr>
+}
+
+</table>

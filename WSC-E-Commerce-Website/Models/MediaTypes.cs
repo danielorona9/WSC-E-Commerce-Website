@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WSC_E_Commerce_Website.Models
 {
+    [Table("MediaTypes")]
     public class MediaTypes
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MediaTypeID { get; set; }
 
         [Display(Name = "Media Type")]

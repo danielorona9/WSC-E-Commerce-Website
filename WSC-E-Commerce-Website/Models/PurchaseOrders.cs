@@ -1,21 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WSC_E_Commerce_Website.Models
 {
+    [Table("PurchaseOrders")]
     public class PurchaseOrders
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PurchaseOrdersID { get; set; }
 
+        [ForeignKey("PurchaseOrderStatus")]
         public int PurchaseOrderStatuesID { get; set; }
 
+        [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
 
+        [ForeignKey("OrderType")]
         public int OrderTypeID { get; set; }
 
+        [ForeignKey("Customers")]
         public int CustomerID { get; set; }
 
         [Display(Name = "Date Ordered")]
