@@ -23,9 +23,9 @@ namespace WSC_E_Commerce_Website
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/Styles/css").Include(
+                      "~/Content//Styles/bootstrap.css",
+                      "~/Content/Styles/site.css"));
         }
     }
 }
