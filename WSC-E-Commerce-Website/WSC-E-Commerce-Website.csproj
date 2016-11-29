@@ -235,6 +235,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\CatalogProducts\EngravedPlaques.jpg" />
+    <Content Include="Content\Images\CatalogProducts\EngravedTrophy.jpg" />
+    <Content Include="Content\Images\CatalogProducts\FancyPlaque.jpg" />
+    <Content Include="Content\Images\CatalogProducts\FootballTrophy.jpg" />
+    <Content Include="Content\Images\CatalogProducts\GoldPlaque.gif" />
+    <Content Include="Content\Images\CatalogProducts\HulkTrophy.jpg" />
+    <Content Include="Content\Images\CatalogProducts\ShirtDesignLineup.jpg" />
+    <Content Include="Content\Images\CatalogProducts\ShirtPrintDesigns.jpg" />
+    <Content Include="Content\Images\CatalogProducts\WSC_Shirt.png" />
     <Content Include="Content\Styles\bootstrap.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -360,7 +369,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\CatalogProducts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
