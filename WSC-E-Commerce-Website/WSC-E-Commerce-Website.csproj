@@ -235,14 +235,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\CatalogProducts\EngravedPlaques.jpg" />
-    <Content Include="Content\Images\CatalogProducts\EngravedTrophy.jpg" />
-    <Content Include="Content\Images\CatalogProducts\FancyPlaque.jpg" />
-    <Content Include="Content\Images\CatalogProducts\FootballTrophy.jpg" />
-    <Content Include="Content\Images\CatalogProducts\GoldPlaque.gif" />
-    <Content Include="Content\Images\CatalogProducts\HulkTrophy.jpg" />
-    <Content Include="Content\Images\CatalogProducts\ShirtDesignLineup.jpg" />
-    <Content Include="Content\Images\CatalogProducts\ShirtPrintDesigns.jpg" />
+    <Content Include="Content\Images\CatalogProducts\BlackShirt.jpg" />
+    <Content Include="Content\Images\CatalogProducts\BlueShirt.jpg" />
+    <Content Include="Content\Images\CatalogProducts\BronzeTrophy.jpg" />
+    <Content Include="Content\Images\CatalogProducts\GoldPLaques.gif" />
+    <Content Include="Content\Images\CatalogProducts\GoldTrophy.jpg" />
+    <Content Include="Content\Images\CatalogProducts\GreyShirt.jpg" />
+    <Content Include="Content\Images\CatalogProducts\GroupPlaque.jpg" />
+    <Content Include="Content\Images\CatalogProducts\SilverPlaque.gif" />
+    <Content Include="Content\Images\CatalogProducts\SilverTrophy.jpg" />
     <Content Include="Content\Images\CatalogProducts\WSC_Shirt.png" />
     <Content Include="Content\Styles\bootstrap.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
