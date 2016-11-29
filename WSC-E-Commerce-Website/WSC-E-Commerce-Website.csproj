@@ -239,11 +239,11 @@
     <Content Include="Content\Images\CatalogProducts\BlackShirt.jpg" />
     <Content Include="Content\Images\CatalogProducts\BlueShirt.jpg" />
     <Content Include="Content\Images\CatalogProducts\BronzeTrophy.jpg" />
-    <Content Include="Content\Images\CatalogProducts\GoldPLaques.gif" />
+    <Content Include="Content\Images\CatalogProducts\GoldPLaques.jpg" />
     <Content Include="Content\Images\CatalogProducts\GoldTrophy.jpg" />
     <Content Include="Content\Images\CatalogProducts\GreyShirt.jpg" />
     <Content Include="Content\Images\CatalogProducts\GroupPlaque.jpg" />
-    <Content Include="Content\Images\CatalogProducts\SilverPlaque.gif" />
+    <Content Include="Content\Images\CatalogProducts\SilverPlaque.jpg" />
     <Content Include="Content\Images\CatalogProducts\SilverTrophy.jpg" />
     <Content Include="Content\Images\CatalogProducts\WSC_Shirt.png" />
     <Content Include="Content\Styles\bootstrap.css" />
