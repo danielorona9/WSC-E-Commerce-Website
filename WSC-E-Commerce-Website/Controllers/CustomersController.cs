@@ -47,7 +47,7 @@ namespace WSC_E_Commerce_Website.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,Address1,Address2,City,Zip,Email,Username,Password,RegisteredDate,ModifiedDate,Locked")] Customers customers)
+        public ActionResult Create([Bind(Include = "CustomerID,FirstName,LastName,Address1,Address2,City,State,Zip,Email,Username,Password,RegisteredDate,ModifiedDate,Locked")] Customers customers)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace WSC_E_Commerce_Website.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,FirstName,LastName,Address1,Address2,City,Zip,Email,Username,Password,RegisteredDate,ModifiedDate,Locked")] Customers customers)
+        public ActionResult Edit([Bind(Include = "CustomerID,FirstName,LastName,Address1,Address2,City,State,Zip,Email,Username,Password,RegisteredDate,ModifiedDate,Locked")] Customers customers)
         {
             if (ModelState.IsValid)
             {
