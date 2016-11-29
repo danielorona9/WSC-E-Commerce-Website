@@ -211,6 +211,7 @@
     <Compile Include="Controllers\ProductCatalogController.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\PurchaseOrderStatusController.cs" />
+    <Compile Include="CustomHtmlHelpers\CustomHtmlHelpers.cs" />
     <Compile Include="DAL\EcommerceStoreDB_Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
