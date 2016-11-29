@@ -235,6 +235,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EcommerceStoreDB_Context.mdf" />
+    <Content Include="App_Data\EcommerceStoreDB_Context_log.ldf">
+      <DependentUpon>EcommerceStoreDB_Context.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\bootstrap.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -359,7 +363,6 @@
     <Content Include="Views\PurchaseOrderStatus\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\Images\CatalogProducts\" />
   </ItemGroup>
   <ItemGroup>
