@@ -40,8 +40,8 @@ namespace WSC_E_Commerce_Website.Models
 
         [Required(ErrorMessage = "Enter your State")]
         [Display(Name = "State")]
-        [StringLength(30)]
-        public char State { get; set; }
+        [StringLength(2)]
+        public string State { get; set; }
 
         [Required(ErrorMessage = "Enter your ZipCode")]
         [Display(Name = "ZipCode")]
