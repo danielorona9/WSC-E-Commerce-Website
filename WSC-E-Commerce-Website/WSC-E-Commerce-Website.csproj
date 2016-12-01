@@ -254,6 +254,8 @@
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\NexaRustScriptL-0-Free-webfont.svg" />
+    <Content Include="fonts\NexaRustSlab-BlackShadow01-Free-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Styles\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -261,6 +263,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\NexaRustScriptL-0-Free-webfont.eot" />
+    <Content Include="fonts\NexaRustScriptL-0-Free-webfont.ttf" />
+    <Content Include="fonts\NexaRustScriptL-0-Free-webfont.woff" />
+    <Content Include="fonts\NexaRustScriptL-0-Free-webfont.woff2" />
+    <Content Include="fonts\NexaRustSlab-BlackShadow01-Free-webfont.eot" />
+    <Content Include="fonts\NexaRustSlab-BlackShadow01-Free-webfont.ttf" />
+    <Content Include="fonts\NexaRustSlab-BlackShadow01-Free-webfont.woff" />
+    <Content Include="fonts\NexaRustSlab-BlackShadow01-Free-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
