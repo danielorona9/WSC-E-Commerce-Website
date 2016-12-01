@@ -1,12 +1,101 @@
-﻿@{
+﻿@using WSC_E_Commerce_Website.CustomHtmlHelpers
+@model IEnumerable<WSC_E_Commerce_Website.Models.ProductCatalog>
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p>
+        <a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a>
+    </p>
 </div>
+
+@*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobType.JobTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MediaType.MediaTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StockAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th></th>
+        </tr>*@
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-4 col-md-3 col-lg-4">
+        <table class="table">
+            <tr>
+                <td>
+                    @*Html.DisplayFor(modelItem => item.ProductImage)*@
+                    @Html.Image(item.ProductImage, "product")
+                </td>
+            </tr>           
+             <tr>
+                 <td>
+                     <label>Producton Description: </label>
+                 </td>
+                 <td>
+                   @Html.DisplayFor(modelItem => item.Description)
+                 </td>
+             </tr>
+            <tr>
+                <td>
+                    <label>Job Type: </label>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobType.JobTypeName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Media Type: </label>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MediaType.MediaTypeName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Price: </label>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <label>Stock Available: </label>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StockAvailable)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ProductCatalogID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductCatalogID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductCatalogID })*@
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
 
 <div class="row">
     <div class="col-md-4">
@@ -16,16 +105,22 @@
             enables a clean separation of concerns and gives you full control over markup
             for enjoyable, agile development.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>
+            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a>
+        </p>
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <p>
+            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a>
+        </p>
     </div>
     <div class="col-md-4">
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p>
+            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a>
+        </p>
     </div>
 </div>
