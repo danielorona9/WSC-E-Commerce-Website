@@ -5,20 +5,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WSC_E_Commerce_Website.DAL;
+using WSC_E_Commerce_Website.Models;
 
 namespace WSC_E_Commerce_Website.Controllers
 {
     public class HomeController : Controller
     {
-        private EcommerceStoreDB_Context db = new EcommerceStoreDB_Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ProductCatalog  
         public ActionResult Index()
-        {                 
-            {
-                var productCatalog = db.ProductCatalog.Include(p => p.JobType).Include(p => p.MediaType);
-                return View(productCatalog.ToList());
-            }
+        {
+            //ViewBag.Message = "Hompage";
+            var productCatalog = db.ProductCatalog.Include(p => p.JobType).Include(p => p.MediaType);
+            return View(productCatalog.ToList());
+
         }
 
         public ActionResult About()

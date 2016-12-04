@@ -196,12 +196,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BillingController.cs" />
-    <Compile Include="Controllers\BillingInfoController.cs" />
-    <Compile Include="Controllers\CreditCardTypeController.cs" />
-    <Compile Include="Controllers\CustomersController.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\EmployeeTypeController.cs" />
+    <Compile Include="Controllers\BillingInfoesController.cs" />
+    <Compile Include="Controllers\BillingsController.cs" />
+    <Compile Include="Controllers\CreditCardTypesController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\EmployeeTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobTypesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -209,18 +208,73 @@
     <Compile Include="Controllers\OrderRequestsController.cs" />
     <Compile Include="Controllers\OrderTypesController.cs" />
     <Compile Include="Controllers\ProductCatalogController.cs" />
-    <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\PurchaseOrderStatusController.cs" />
     <Compile Include="CustomHtmlHelpers\CustomHtmlHelpers.cs" />
-    <Compile Include="DAL\EcommerceStoreDB_Context.cs" />
+    <Compile Include="DAL\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612030440174_intitial.cs" />
+    <Compile Include="Migrations\201612030440174_intitial.Designer.cs">
+      <DependentUpon>201612030440174_intitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030547033_intitial1.cs" />
+    <Compile Include="Migrations\201612030547033_intitial1.Designer.cs">
+      <DependentUpon>201612030547033_intitial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030601248_intitial2.cs" />
+    <Compile Include="Migrations\201612030601248_intitial2.Designer.cs">
+      <DependentUpon>201612030601248_intitial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030633390_intitial3.cs" />
+    <Compile Include="Migrations\201612030633390_intitial3.Designer.cs">
+      <DependentUpon>201612030633390_intitial3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030646556_intitial4.cs" />
+    <Compile Include="Migrations\201612030646556_intitial4.Designer.cs">
+      <DependentUpon>201612030646556_intitial4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030705336_intitial5.cs" />
+    <Compile Include="Migrations\201612030705336_intitial5.Designer.cs">
+      <DependentUpon>201612030705336_intitial5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030740079_intitial6.cs" />
+    <Compile Include="Migrations\201612030740079_intitial6.Designer.cs">
+      <DependentUpon>201612030740079_intitial6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030805244_intitial7.cs" />
+    <Compile Include="Migrations\201612030805244_intitial7.Designer.cs">
+      <DependentUpon>201612030805244_intitial7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030828361_intitial8.cs" />
+    <Compile Include="Migrations\201612030828361_intitial8.Designer.cs">
+      <DependentUpon>201612030828361_intitial8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030903257_intitial9.cs" />
+    <Compile Include="Migrations\201612030903257_intitial9.Designer.cs">
+      <DependentUpon>201612030903257_intitial9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030914313_intitial10.cs" />
+    <Compile Include="Migrations\201612030914313_intitial10.Designer.cs">
+      <DependentUpon>201612030914313_intitial10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030915454_intitial11.cs" />
+    <Compile Include="Migrations\201612030915454_intitial11.Designer.cs">
+      <DependentUpon>201612030915454_intitial11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612030933506_intitial12.cs" />
+    <Compile Include="Migrations\201612030933506_intitial12.Designer.cs">
+      <DependentUpon>201612030933506_intitial12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612040349538_intitial13.cs" />
+    <Compile Include="Migrations\201612040349538_intitial13.Designer.cs">
+      <DependentUpon>201612040349538_intitial13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
     <Compile Include="Models\BillingInfo.cs" />
     <Compile Include="Models\CreditCardType.cs" />
-    <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -236,10 +290,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\EcommerceStoreDB_Context.mdf" />
-    <Content Include="App_Data\EcommerceStoreDB_Context_log.ldf">
-      <DependentUpon>EcommerceStoreDB_Context.mdf</DependentUpon>
+    <Content Include="App_Data\aspnet-WSC-E-Commerce-Website-20161119110344.mdf" />
+    <Content Include="App_Data\aspnet-WSC-E-Commerce-Website-20161119110344_log.ldf">
+      <DependentUpon>aspnet-WSC-E-Commerce-Website-20161119110344.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\_log.ldf" />
     <Content Include="Content\Images\CatalogProducts\BlackShirt.jpg" />
     <Content Include="Content\Images\CatalogProducts\BlueShirt.jpg" />
     <Content Include="Content\Images\CatalogProducts\BronzeTrophy.jpg" />
@@ -317,36 +372,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Billing\Create.cshtml" />
-    <Content Include="Views\Billing\Delete.cshtml" />
-    <Content Include="Views\Billing\Details.cshtml" />
-    <Content Include="Views\Billing\Edit.cshtml" />
-    <Content Include="Views\Billing\Index.cshtml" />
-    <Content Include="Views\BillingInfo\Create.cshtml" />
-    <Content Include="Views\BillingInfo\Delete.cshtml" />
-    <Content Include="Views\BillingInfo\Details.cshtml" />
-    <Content Include="Views\BillingInfo\Edit.cshtml" />
-    <Content Include="Views\BillingInfo\Index.cshtml" />
-    <Content Include="Views\CreditCardType\Create.cshtml" />
-    <Content Include="Views\CreditCardType\Delete.cshtml" />
-    <Content Include="Views\CreditCardType\Details.cshtml" />
-    <Content Include="Views\CreditCardType\Edit.cshtml" />
-    <Content Include="Views\CreditCardType\Index.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\EmployeeType\Create.cshtml" />
-    <Content Include="Views\EmployeeType\Delete.cshtml" />
-    <Content Include="Views\EmployeeType\Details.cshtml" />
-    <Content Include="Views\EmployeeType\Edit.cshtml" />
-    <Content Include="Views\EmployeeType\Index.cshtml" />
-    <Content Include="Views\JobTypes\Create.cshtml" />
-    <Content Include="Views\JobTypes\Delete.cshtml" />
-    <Content Include="Views\JobTypes\Details.cshtml" />
-    <Content Include="Views\JobTypes\Edit.cshtml" />
-    <Content Include="Views\JobTypes\Index.cshtml" />
     <Content Include="Views\MediaTypes\Create.cshtml" />
     <Content Include="Views\MediaTypes\Delete.cshtml" />
     <Content Include="Views\MediaTypes\Details.cshtml" />
@@ -372,18 +397,42 @@
     <Content Include="Views\PurchaseOrders\Details.cshtml" />
     <Content Include="Views\PurchaseOrders\Edit.cshtml" />
     <Content Include="Views\PurchaseOrders\Index.cshtml" />
+    <Content Include="Views\CreditCardTypes\Create.cshtml" />
+    <Content Include="Views\CreditCardTypes\Delete.cshtml" />
+    <Content Include="Views\CreditCardTypes\Details.cshtml" />
+    <Content Include="Views\CreditCardTypes\Edit.cshtml" />
+    <Content Include="Views\CreditCardTypes\Index.cshtml" />
+    <Content Include="Views\BillingInfoes\Create.cshtml" />
+    <Content Include="Views\BillingInfoes\Delete.cshtml" />
+    <Content Include="Views\BillingInfoes\Details.cshtml" />
+    <Content Include="Views\BillingInfoes\Edit.cshtml" />
+    <Content Include="Views\BillingInfoes\Index.cshtml" />
+    <Content Include="Views\Billings\Create.cshtml" />
+    <Content Include="Views\Billings\Delete.cshtml" />
+    <Content Include="Views\Billings\Details.cshtml" />
+    <Content Include="Views\Billings\Edit.cshtml" />
+    <Content Include="Views\Billings\Index.cshtml" />
+    <Content Include="Views\EmployeeTypes\Create.cshtml" />
+    <Content Include="Views\EmployeeTypes\Delete.cshtml" />
+    <Content Include="Views\EmployeeTypes\Details.cshtml" />
+    <Content Include="Views\EmployeeTypes\Edit.cshtml" />
+    <Content Include="Views\EmployeeTypes\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\JobTypes\Create.cshtml" />
+    <Content Include="Views\JobTypes\Delete.cshtml" />
+    <Content Include="Views\JobTypes\Details.cshtml" />
+    <Content Include="Views\JobTypes\Edit.cshtml" />
+    <Content Include="Views\JobTypes\Index.cshtml" />
     <Content Include="Views\PurchaseOrderStatus\Create.cshtml" />
     <Content Include="Views\PurchaseOrderStatus\Delete.cshtml" />
     <Content Include="Views\PurchaseOrderStatus\Details.cshtml" />
     <Content Include="Views\PurchaseOrderStatus\Edit.cshtml" />
     <Content Include="Views\PurchaseOrderStatus\Index.cshtml" />
-    <Content Include="Views\Customers\Create.cshtml" />
-    <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Customers\Edit.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -391,6 +440,51 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612030440174_intitial.resx">
+      <DependentUpon>201612030440174_intitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030547033_intitial1.resx">
+      <DependentUpon>201612030547033_intitial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030601248_intitial2.resx">
+      <DependentUpon>201612030601248_intitial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030633390_intitial3.resx">
+      <DependentUpon>201612030633390_intitial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030646556_intitial4.resx">
+      <DependentUpon>201612030646556_intitial4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030705336_intitial5.resx">
+      <DependentUpon>201612030705336_intitial5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030740079_intitial6.resx">
+      <DependentUpon>201612030740079_intitial6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030805244_intitial7.resx">
+      <DependentUpon>201612030805244_intitial7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030828361_intitial8.resx">
+      <DependentUpon>201612030828361_intitial8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030903257_intitial9.resx">
+      <DependentUpon>201612030903257_intitial9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030914313_intitial10.resx">
+      <DependentUpon>201612030914313_intitial10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030915454_intitial11.resx">
+      <DependentUpon>201612030915454_intitial11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612030933506_intitial12.resx">
+      <DependentUpon>201612030933506_intitial12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612040349538_intitial13.resx">
+      <DependentUpon>201612040349538_intitial13.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

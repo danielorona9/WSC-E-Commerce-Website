@@ -1,13 +1,11 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using WSC_E_Commerce_Website.DAL;
 using WSC_E_Commerce_Website.Models;
 
 namespace WSC_E_Commerce_Website.Controllers
@@ -151,10 +149,16 @@ namespace WSC_E_Commerce_Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,FirstName = model.FirstName, LastName = model.LastName, Address1 = model.Address1, Address2 = model.Address2, City = model.City, State = model.State, Zip = model.Zip};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    ////tempcode
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageCatalog"));
+                    //await UserManager.AddToRoleAsync(user.Id, "canManageCatalog");
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

@@ -1,4 +1,4 @@
-﻿@using WSC_E_Commerce_Website.CustomHtmlHelpers;
+﻿@using WSC_E_Commerce_Website.CustomHtmlHelpers
 @model IEnumerable<WSC_E_Commerce_Website.Models.ProductCatalog>
 
 @{
@@ -51,8 +51,7 @@
             @Html.DisplayFor(modelItem => item.StockAvailable)
         </td>
         <td>
-            @*Html.DisplayFor(modelItem => item.ProductImage)*@
-            @Html.Image(item.ProductImage,"product")
+            @Html.Image(item.ProductImage, item.Description)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductCatalogID }) |

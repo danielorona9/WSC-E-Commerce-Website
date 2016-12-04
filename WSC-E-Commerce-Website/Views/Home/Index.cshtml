@@ -7,7 +7,9 @@
 <div class="jumbotron">
     <h1>Printing &amp; Engraving</h1>
     <p class="lead">Request custom printing on clothing items and custom engraving on plaques and trophies.</p>
-    <p><a href="#" class="btn btn-primary btn-lg">View Our Catalog &raquo;</a></p>
+    <p>
+        <a href="#" class="btn btn-primary btn-lg">View Our Catalog &raquo;</a>
+    </p>
 </div>
 <div class="row">
     <div class="col-md-4">
@@ -33,17 +35,17 @@
             <tr>
                 <td>
                     @*Html.DisplayFor(modelItem => item.ProductImage)*@
-                    @Html.Image(item.ProductImage, "product")
+                    @Html.Image(item.ProductImage, item.Description)
                 </td>
-            </tr>           
-             <tr>
-                 <td>
-                     <label>Producton Description: </label>
-                 </td>
-                 <td>
-                   @Html.DisplayFor(modelItem => item.Description)
-                 </td>
-             </tr>
+            </tr>
+            <tr>
+                <td>
+                    <label>Producton Description: </label>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
             <tr>
                 <td>
                     <label>Job Type: </label>
@@ -68,7 +70,7 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
             </tr>
-           
+
             <tr>
                 <td>
                     <label>Stock Available: </label>
@@ -80,12 +82,10 @@
             <tr>
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.ProductCatalogID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ProductCatalogID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProductCatalogID })*@
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductCatalogID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductCatalogID })*@
                 </td>
             </tr>
         </table>
     </div>
 }
-
-

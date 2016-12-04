@@ -13,7 +13,7 @@ namespace WSC_E_Commerce_Website.Controllers
 {
     public class MediaTypesController : Controller
     {
-        private EcommerceStoreDB_Context db = new EcommerceStoreDB_Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MediaTypes
         public ActionResult Index()
