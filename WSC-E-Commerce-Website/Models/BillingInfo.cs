@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
 namespace WSC_E_Commerce_Website.Models
 {
@@ -11,16 +14,12 @@ namespace WSC_E_Commerce_Website.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BillingInfoID { get; set; }
 
-        [ForeignKey("Customers")]
-        public int CustomerID { get; set; }  
-
         [ForeignKey("CreditCardType")]
         public int CreditCardTypeID { get; set; }
 
-        [Required(ErrorMessage = "Enter Credit Card number")]    
-        [DataType(DataType.CreditCard)]
+        [Required(ErrorMessage = "Enter Credit Card number")]
         [Display(Name = "Credit Card Number")]
-        public int CreditNumber { get; set; }
+        public int CreditCardNumber { get; set; }
 
         [Required(ErrorMessage = "Enter expiration date")]
         [DisplayFormat(DataFormatString = "{0:MM/yyyy}", ApplyFormatInEditMode = true)]
@@ -28,8 +27,11 @@ namespace WSC_E_Commerce_Website.Models
         [Display(Name = "Expiration Date")]
         public DateTime ExpirationDate { get; set; }
 
+        public string ApplicationUserID { get; set; }
+
         //connected to tables that are the one side
-        public virtual Customers Customers { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual CreditCardType CreditCardType { get; set; }
+
     }
 }

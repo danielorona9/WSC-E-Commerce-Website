@@ -13,12 +13,12 @@ namespace WSC_E_Commerce_Website.Controllers
 {
     public class OrderTypesController : Controller
     {
-        private EcommerceStoreDB_Context db = new EcommerceStoreDB_Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: OrderTypes
         public ActionResult Index()
         {
-            return View(db.OrderType.ToList());
+            return View(db.OrderTypes.ToList());
         }
 
         // GET: OrderTypes/Details/5
@@ -28,7 +28,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderType orderType = db.OrderType.Find(id);
+            OrderType orderType = db.OrderTypes.Find(id);
             if (orderType == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace WSC_E_Commerce_Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.OrderType.Add(orderType);
+                db.OrderTypes.Add(orderType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderType orderType = db.OrderType.Find(id);
+            OrderType orderType = db.OrderTypes.Find(id);
             if (orderType == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderType orderType = db.OrderType.Find(id);
+            OrderType orderType = db.OrderTypes.Find(id);
             if (orderType == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace WSC_E_Commerce_Website.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OrderType orderType = db.OrderType.Find(id);
-            db.OrderType.Remove(orderType);
+            OrderType orderType = db.OrderTypes.Find(id);
+            db.OrderTypes.Remove(orderType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

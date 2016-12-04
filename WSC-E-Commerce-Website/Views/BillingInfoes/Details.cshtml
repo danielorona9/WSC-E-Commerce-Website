@@ -1,0 +1,50 @@
+﻿@model WSC_E_Commerce_Website.Models.BillingInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BillingInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditCardType.CreditCardTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditCardType.CreditCardTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditCardNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditCardNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpirationDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BillingInfoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

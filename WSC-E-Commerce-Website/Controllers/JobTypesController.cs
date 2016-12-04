@@ -13,7 +13,7 @@ namespace WSC_E_Commerce_Website.Controllers
 {
     public class JobTypesController : Controller
     {
-        private EcommerceStoreDB_Context db = new EcommerceStoreDB_Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: JobTypes
         public ActionResult Index()

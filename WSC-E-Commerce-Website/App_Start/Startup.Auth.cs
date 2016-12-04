@@ -3,8 +3,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
+using WSC_E_Commerce_Website.DAL;
 using WSC_E_Commerce_Website.Models;
 
 namespace WSC_E_Commerce_Website

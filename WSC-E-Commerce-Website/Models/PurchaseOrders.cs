@@ -19,10 +19,7 @@ namespace WSC_E_Commerce_Website.Models
         public int EmployeeID { get; set; }
 
         [ForeignKey("OrderType")]
-        public int OrderTypeID { get; set; }
-
-        [ForeignKey("Customers")]
-        public int CustomerID { get; set; }
+        public int OrderTypeID { get; set; }     
 
         [Display(Name = "Date Ordered")]
         [DataType(DataType.Date)]
@@ -36,11 +33,13 @@ namespace WSC_E_Commerce_Website.Models
         [DataType(DataType.Currency)]
         public decimal Deposit { get; set; }
 
+        public string ApplicationUserID { get; set; }
+
         //connected tables on the one side
         public virtual PurchaseOrderStatus PurchaseOrderStatus {get; set;}
         public virtual Employee Employee { get; set; }
         public virtual OrderType OrderType { get; set; }
-        public virtual Customers Customers { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         //connected tables on the many side
         public virtual ICollection<Billing> Billing { get; set; }

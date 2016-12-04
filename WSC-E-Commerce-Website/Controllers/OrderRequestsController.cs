@@ -13,13 +13,13 @@ namespace WSC_E_Commerce_Website.Controllers
 {
     public class OrderRequestsController : Controller
     {
-        private EcommerceStoreDB_Context db = new EcommerceStoreDB_Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: OrderRequests
         public ActionResult Index()
         {
-            var orderRequest = db.OrderRequest.Include(o => o.ProductCatalog).Include(o => o.PurchaseOrders);
-            return View(orderRequest.ToList());
+            var orderRequests = db.OrderRequests.Include(o => o.ProductCatalog).Include(o => o.PurchaseOrders);
+            return View(orderRequests.ToList());
         }
 
         // GET: OrderRequests/Details/5
@@ -29,7 +29,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderRequest orderRequest = db.OrderRequest.Find(id);
+            OrderRequest orderRequest = db.OrderRequests.Find(id);
             if (orderRequest == null)
             {
                 return HttpNotFound();
@@ -41,7 +41,7 @@ namespace WSC_E_Commerce_Website.Controllers
         public ActionResult Create()
         {
             ViewBag.ProductCatalogID = new SelectList(db.ProductCatalog, "ProductCatalogID", "Description");
-            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "PurchaseOrdersID");
+            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "ApplicationUserID");
             return View();
         }
 
@@ -54,13 +54,13 @@ namespace WSC_E_Commerce_Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.OrderRequest.Add(orderRequest);
+                db.OrderRequests.Add(orderRequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.ProductCatalogID = new SelectList(db.ProductCatalog, "ProductCatalogID", "Description", orderRequest.ProductCatalogID);
-            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "PurchaseOrdersID", orderRequest.PurchaseOrdersID);
+            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "ApplicationUserID", orderRequest.PurchaseOrdersID);
             return View(orderRequest);
         }
 
@@ -71,13 +71,13 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderRequest orderRequest = db.OrderRequest.Find(id);
+            OrderRequest orderRequest = db.OrderRequests.Find(id);
             if (orderRequest == null)
             {
                 return HttpNotFound();
             }
             ViewBag.ProductCatalogID = new SelectList(db.ProductCatalog, "ProductCatalogID", "Description", orderRequest.ProductCatalogID);
-            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "PurchaseOrdersID", orderRequest.PurchaseOrdersID);
+            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "ApplicationUserID", orderRequest.PurchaseOrdersID);
             return View(orderRequest);
         }
 
@@ -95,7 +95,7 @@ namespace WSC_E_Commerce_Website.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ProductCatalogID = new SelectList(db.ProductCatalog, "ProductCatalogID", "Description", orderRequest.ProductCatalogID);
-            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "PurchaseOrdersID", orderRequest.PurchaseOrdersID);
+            ViewBag.PurchaseOrdersID = new SelectList(db.PurchaseOrders, "PurchaseOrdersID", "ApplicationUserID", orderRequest.PurchaseOrdersID);
             return View(orderRequest);
         }
 
@@ -106,7 +106,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderRequest orderRequest = db.OrderRequest.Find(id);
+            OrderRequest orderRequest = db.OrderRequests.Find(id);
             if (orderRequest == null)
             {
                 return HttpNotFound();
@@ -119,8 +119,8 @@ namespace WSC_E_Commerce_Website.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            OrderRequest orderRequest = db.OrderRequest.Find(id);
-            db.OrderRequest.Remove(orderRequest);
+            OrderRequest orderRequest = db.OrderRequests.Find(id);
+            db.OrderRequests.Remove(orderRequest);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -13,12 +13,12 @@ namespace WSC_E_Commerce_Website.Controllers
 {
     public class PurchaseOrderStatusController : Controller
     {
-        private EcommerceStoreDB_Context db = new EcommerceStoreDB_Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: PurchaseOrderStatus
         public ActionResult Index()
         {
-            return View(db.PurchaseOrderStatus.ToList());
+            return View(db.PurchaseOrderStatuses.ToList());
         }
 
         // GET: PurchaseOrderStatus/Details/5
@@ -28,7 +28,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatus.Find(id);
+            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatuses.Find(id);
             if (purchaseOrderStatus == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace WSC_E_Commerce_Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PurchaseOrderStatus.Add(purchaseOrderStatus);
+                db.PurchaseOrderStatuses.Add(purchaseOrderStatus);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatus.Find(id);
+            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatuses.Find(id);
             if (purchaseOrderStatus == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatus.Find(id);
+            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatuses.Find(id);
             if (purchaseOrderStatus == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace WSC_E_Commerce_Website.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatus.Find(id);
-            db.PurchaseOrderStatus.Remove(purchaseOrderStatus);
+            PurchaseOrderStatus purchaseOrderStatus = db.PurchaseOrderStatuses.Find(id);
+            db.PurchaseOrderStatuses.Remove(purchaseOrderStatus);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WSC_E_Commerce_Website.Models.Billing>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseOrders.ApplicationUserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillingDueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillingPaiddueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaidAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseOrders.ApplicationUserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillingDueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillingPaiddueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaidAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BillingID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BillingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BillingID })
+        </td>
+    </tr>
+}
+
+</table>
