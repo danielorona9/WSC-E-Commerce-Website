@@ -218,10 +218,6 @@
     <Compile Include="Migrations\201612030440174_intitial.Designer.cs">
       <DependentUpon>201612030440174_intitial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612030547033_intitial1.cs" />
-    <Compile Include="Migrations\201612030547033_intitial1.Designer.cs">
-      <DependentUpon>201612030547033_intitial1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201612030601248_intitial2.cs" />
     <Compile Include="Migrations\201612030601248_intitial2.Designer.cs">
       <DependentUpon>201612030601248_intitial2.cs</DependentUpon>
@@ -234,10 +230,6 @@
     <Compile Include="Migrations\201612030646556_intitial4.Designer.cs">
       <DependentUpon>201612030646556_intitial4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612030705336_intitial5.cs" />
-    <Compile Include="Migrations\201612030705336_intitial5.Designer.cs">
-      <DependentUpon>201612030705336_intitial5.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201612030740079_intitial6.cs" />
     <Compile Include="Migrations\201612030740079_intitial6.Designer.cs">
       <DependentUpon>201612030740079_intitial6.cs</DependentUpon>
@@ -245,10 +237,6 @@
     <Compile Include="Migrations\201612030805244_intitial7.cs" />
     <Compile Include="Migrations\201612030805244_intitial7.Designer.cs">
       <DependentUpon>201612030805244_intitial7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612030828361_intitial8.cs" />
-    <Compile Include="Migrations\201612030828361_intitial8.Designer.cs">
-      <DependentUpon>201612030828361_intitial8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201612030903257_intitial9.cs" />
     <Compile Include="Migrations\201612030903257_intitial9.Designer.cs">
@@ -266,9 +254,29 @@
     <Compile Include="Migrations\201612030933506_intitial12.Designer.cs">
       <DependentUpon>201612030933506_intitial12.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612040349538_intitial13.cs" />
-    <Compile Include="Migrations\201612040349538_intitial13.Designer.cs">
-      <DependentUpon>201612040349538_intitial13.cs</DependentUpon>
+    <Compile Include="Migrations\201612050904570_populateCreditCardTypes.cs" />
+    <Compile Include="Migrations\201612050904570_populateCreditCardTypes.Designer.cs">
+      <DependentUpon>201612050904570_populateCreditCardTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612050913522_populateMediaTypes.cs" />
+    <Compile Include="Migrations\201612050913522_populateMediaTypes.Designer.cs">
+      <DependentUpon>201612050913522_populateMediaTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612050916579_populateOrderType.cs" />
+    <Compile Include="Migrations\201612050916579_populateOrderType.Designer.cs">
+      <DependentUpon>201612050916579_populateOrderType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612050920438_populateJobTypes.cs" />
+    <Compile Include="Migrations\201612050920438_populateJobTypes.Designer.cs">
+      <DependentUpon>201612050920438_populateJobTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612050924069_populateUsersRoles.cs" />
+    <Compile Include="Migrations\201612050924069_populateUsersRoles.Designer.cs">
+      <DependentUpon>201612050924069_populateUsersRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612050930298_populateCatalog.cs" />
+    <Compile Include="Migrations\201612050930298_populateCatalog.Designer.cs">
+      <DependentUpon>201612050930298_populateCatalog.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -290,11 +298,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-WSC-E-Commerce-Website-20161119110344.mdf" />
-    <Content Include="App_Data\aspnet-WSC-E-Commerce-Website-20161119110344_log.ldf">
-      <DependentUpon>aspnet-WSC-E-Commerce-Website-20161119110344.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\_log.ldf" />
     <Content Include="Content\Images\CatalogProducts\BlackShirt.jpg" />
     <Content Include="Content\Images\CatalogProducts\BlueShirt.jpg" />
     <Content Include="Content\Images\CatalogProducts\BronzeTrophy.jpg" />
@@ -441,13 +444,12 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612030440174_intitial.resx">
       <DependentUpon>201612030440174_intitial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612030547033_intitial1.resx">
-      <DependentUpon>201612030547033_intitial1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612030601248_intitial2.resx">
       <DependentUpon>201612030601248_intitial2.cs</DependentUpon>
@@ -458,17 +460,11 @@
     <EmbeddedResource Include="Migrations\201612030646556_intitial4.resx">
       <DependentUpon>201612030646556_intitial4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612030705336_intitial5.resx">
-      <DependentUpon>201612030705336_intitial5.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612030740079_intitial6.resx">
       <DependentUpon>201612030740079_intitial6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612030805244_intitial7.resx">
       <DependentUpon>201612030805244_intitial7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612030828361_intitial8.resx">
-      <DependentUpon>201612030828361_intitial8.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612030903257_intitial9.resx">
       <DependentUpon>201612030903257_intitial9.cs</DependentUpon>
@@ -482,8 +478,23 @@
     <EmbeddedResource Include="Migrations\201612030933506_intitial12.resx">
       <DependentUpon>201612030933506_intitial12.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612040349538_intitial13.resx">
-      <DependentUpon>201612040349538_intitial13.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612050904570_populateCreditCardTypes.resx">
+      <DependentUpon>201612050904570_populateCreditCardTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612050913522_populateMediaTypes.resx">
+      <DependentUpon>201612050913522_populateMediaTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612050916579_populateOrderType.resx">
+      <DependentUpon>201612050916579_populateOrderType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612050920438_populateJobTypes.resx">
+      <DependentUpon>201612050920438_populateJobTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612050924069_populateUsersRoles.resx">
+      <DependentUpon>201612050924069_populateUsersRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612050930298_populateCatalog.resx">
+      <DependentUpon>201612050930298_populateCatalog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

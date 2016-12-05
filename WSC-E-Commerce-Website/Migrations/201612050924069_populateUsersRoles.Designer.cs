@@ -7,13 +7,13 @@ namespace WSC_E_Commerce_Website.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class intitial13 : IMigrationMetadata
+    public sealed partial class populateUsersRoles : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(intitial13));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(populateUsersRoles));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612040349538_intitial13"; }
+            get { return "201612050924069_populateUsersRoles"; }
         }
         
         string IMigrationMetadata.Source

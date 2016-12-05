@@ -1,3 +1,8 @@
+using System.Collections.Generic;
+using System.Web.Mvc;
+using Microsoft.AspNet.Identity.EntityFramework;
+using WSC_E_Commerce_Website.Models;
+
 namespace WSC_E_Commerce_Website.Migrations
 {
     using System;
@@ -26,6 +31,9 @@ namespace WSC_E_Commerce_Website.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            //work on insert data for application user table first
+           // var ApplicationUser = new List<ApplicationUser>();
+        
         }
     }
 }

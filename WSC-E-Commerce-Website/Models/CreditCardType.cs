@@ -8,7 +8,6 @@ namespace WSC_E_Commerce_Website.Models
     public class CreditCardType
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CreditCardTypeId { get; set;}
 
         [Required(ErrorMessage = "please select a credit card type")]

@@ -7,13 +7,13 @@ namespace WSC_E_Commerce_Website.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class intitial5 : IMigrationMetadata
+    public sealed partial class populateCreditCardTypes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(intitial5));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(populateCreditCardTypes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612030705336_intitial5"; }
+            get { return "201612050904570_populateCreditCardTypes"; }
         }
         
         string IMigrationMetadata.Source
