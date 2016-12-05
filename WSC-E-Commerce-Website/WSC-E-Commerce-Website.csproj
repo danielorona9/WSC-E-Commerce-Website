@@ -278,6 +278,10 @@
     <Compile Include="Migrations\201612050930298_populateCatalog.Designer.cs">
       <DependentUpon>201612050930298_populateCatalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612050942264_populateOrderStatus.cs" />
+    <Compile Include="Migrations\201612050942264_populateOrderStatus.Designer.cs">
+      <DependentUpon>201612050942264_populateOrderStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
@@ -495,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612050930298_populateCatalog.resx">
       <DependentUpon>201612050930298_populateCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612050942264_populateOrderStatus.resx">
+      <DependentUpon>201612050942264_populateOrderStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
