@@ -29,13 +29,63 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             ProductCatalog productCatalog = db.ProductCatalog.Find(id);
+
             if (productCatalog == null)
             {
                 return HttpNotFound();
             }
+
             return View(productCatalog);
         }
+        //GET: ProductCatalog/ProductDetails/id
+        public ActionResult ProductDetail(int? id)
+        {
+            
+         var product =
+                db.ProductCatalog
+                .Include(p => p.MediaType)
+                .Include(p => p.JobType)
+                .Single(p => p.ProductCatalogID == id.Value);
+
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+                    
+            return View("ProductDetail", product);
+        }
+
+        //GET: CatalogList
+        public ActionResult CatalogList()
+        {
+            var productCatalog = 
+                db.ProductCatalog
+                .Include(p => p.JobType)
+                .Include(p => p.MediaType);
+
+            return View("Catalog",productCatalog.ToList());
+        }
+
+        //GET: SortByMediaType/id
+        public ActionResult SortByMediaType(int? id)
+        {
+            if (id == null)
+            {
+                return  new HttpStatusCodeResult((HttpStatusCode.BadRequest));
+            }
+            var product = 
+                db.ProductCatalog
+                .Include(p => p.MediaType)
+                .Include(p => p.JobType)
+                .Where(p => p.MediaTypeID == id.Value).ToList();
+
+
+            return View("Catalog", product);
+        }
+        
+
 
         // GET: ProductCatalog/Create
         public ActionResult Create()
@@ -106,7 +156,9 @@ namespace WSC_E_Commerce_Website.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             ProductCatalog productCatalog = db.ProductCatalog.Find(id);
+
             if (productCatalog == null)
             {
                 return HttpNotFound();
