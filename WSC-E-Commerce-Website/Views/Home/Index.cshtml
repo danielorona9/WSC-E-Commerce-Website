@@ -1,5 +1,7 @@
-﻿@using WSC_E_Commerce_Website.CustomHtmlHelpers
-@model IEnumerable<WSC_E_Commerce_Website.Models.ProductCatalog>
+﻿@using WSC_E_Commerce_Website.Controllers
+@using WSC_E_Commerce_Website.CustomHtmlHelpers
+@using WSC_E_Commerce_Website.Models
+@model WSC_E_Commerce_Website.Models.ProductCatalog
 @{
     ViewBag.Title = "Home Page";
 }
@@ -8,84 +10,26 @@
     <h1>Printing &amp; Engraving</h1>
     <p class="lead">Request custom printing on clothing items and custom engraving on plaques and trophies.</p>
     <p>
-        <a href="#" class="btn btn-primary btn-lg">View Our Catalog &raquo;</a>
+        <a class="btn btn-primary btn-lg" @Html.ActionLink("View Our Catalog", "CatalogList", "ProductCatalog")&raquo; > </a>
     </p>
 </div>
 <div class="row">
     <div class="col-md-4">
         <h2>Clothing</h2>
         <p>View our collection of popular clothing items.</p>
-        <p><a class="btn btn-default" href="#">Clothing Collection &raquo;</a></p>
+        <p><a class="btn btn-default" @Html.ActionLink("Clothing Collection","SortByMediaType","ProductCatalog", new {id = 1}, null) &raquo;></a></p>
+        <p>@Html.Image("~/Content/Images/CatalogProducts/BlackShirt.jpg", "Blank black Shirt")</p>
     </div>
     <div class="col-md-4">
         <h2>Plaques</h2>
-        <p>See our selction of plaques.</p>
-        <p><a class="btn btn-default" href="#">Plaque Collection &raquo;</a></p>
+        <p>See our selection of plaques.</p>
+        <p><a class="btn btn-default" @Html.ActionLink("Plaque Collection", "SortByMediaType","ProductCatalog", new {id = 2}, null) &raquo;></a></p>
+        <p>@Html.Image("~/Content/Images/CatalogProducts/GroupPlaque.jpg", "Blank Group Plaque")</p>
     </div>
     <div class="col-md-4">
         <h2>Trophies</h2>
         <p>See our selection of trophies.</p>
-        <p><a class="btn btn-default" href="#">Trophy Collection &raquo;</a></p>
+        <p><a class="btn btn-default" @Html.ActionLink("Trophy Collection", "SortByMediaType", "ProductCatalog", new {id = 3}, null) &raquo;></a></p>
+        <p>@Html.Image("~/Content/Images/CatalogProducts/BronzeTrophy.jpg", "Blank Bronze Trophy")</p>
     </div>
 </div>
-@foreach (var item in Model)
-{
-    <div class="col-sm-4 col-md-3 col-lg-4">
-        <table class="table">
-            <tr>
-                <td>
-                    @*Html.DisplayFor(modelItem => item.ProductImage)*@
-                    @Html.Image(item.ProductImage, item.Description)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Producton Description: </label>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Job Type: </label>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JobType.JobTypeName)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Media Type: </label>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MediaType.MediaTypeName)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Price: </label>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <label>Stock Available: </label>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StockAvailable)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ProductCatalogID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ProductCatalogID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductCatalogID })*@
-                </td>
-            </tr>
-        </table>
-    </div>
-}

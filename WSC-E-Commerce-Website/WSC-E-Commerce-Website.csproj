@@ -439,6 +439,8 @@
     <Content Include="Views\PurchaseOrderStatus\Details.cshtml" />
     <Content Include="Views\PurchaseOrderStatus\Edit.cshtml" />
     <Content Include="Views\PurchaseOrderStatus\Index.cshtml" />
+    <Content Include="Views\ProductCatalog\Catalog.cshtml" />
+    <Content Include="Views\ProductCatalog\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -15,11 +15,11 @@ namespace WSC_E_Commerce_Website.Controllers
 
         // GET: ProductCatalog  
         public ActionResult Index()
-        {
-            //ViewBag.Message = "Hompage";
-            var productCatalog = db.ProductCatalog.Include(p => p.JobType).Include(p => p.MediaType);
-            return View(productCatalog.ToList());
-
+        {      
+            ViewBag.Message = "Hompage";
+            //var productCatalog = db.ProductCatalog.Include(p => p.JobType).Include(p => p.MediaType);
+            //return View(productCatalog.ToList());
+            return View();
         }
 
         public ActionResult About()
@@ -35,5 +35,7 @@ namespace WSC_E_Commerce_Website.Controllers
 
             return View();
         }
+
+       
     }
 }
