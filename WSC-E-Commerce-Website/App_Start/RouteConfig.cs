@@ -13,7 +13,9 @@ namespace WSC_E_Commerce_Website
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(           
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
