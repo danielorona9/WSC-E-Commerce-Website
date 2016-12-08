@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using WSC_E_Commerce_Website.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -42,7 +43,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year Williams Specialty Company</p>
+            <p>&copy; @DateTime.Now.Year Williams Specialty Company @Html.ActionLink("Employee Portal", "EmployeePortal", "Home")</p>
         </footer>
     </div>
 

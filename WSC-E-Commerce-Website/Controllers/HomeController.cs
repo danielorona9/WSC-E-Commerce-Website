@@ -36,6 +36,10 @@ namespace WSC_E_Commerce_Website.Controllers
             return View();
         }
 
-       
+        public ActionResult EmployeePortal()
+        {
+
+            return View();
+        }
     }
 }

@@ -208,6 +208,7 @@
     <Compile Include="Controllers\OrderRequestsController.cs" />
     <Compile Include="Controllers\OrderTypesController.cs" />
     <Compile Include="Controllers\ProductCatalogController.cs" />
+    <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\PurchaseOrderStatusController.cs" />
     <Compile Include="CustomHtmlHelpers\CustomHtmlHelpers.cs" />
     <Compile Include="DAL\ApplicationDbContext.cs" />
@@ -399,11 +400,6 @@
     <Content Include="Views\ProductCatalog\Details.cshtml" />
     <Content Include="Views\ProductCatalog\Edit.cshtml" />
     <Content Include="Views\ProductCatalog\Index.cshtml" />
-    <Content Include="Views\PurchaseOrders\Create.cshtml" />
-    <Content Include="Views\PurchaseOrders\Delete.cshtml" />
-    <Content Include="Views\PurchaseOrders\Details.cshtml" />
-    <Content Include="Views\PurchaseOrders\Edit.cshtml" />
-    <Content Include="Views\PurchaseOrders\Index.cshtml" />
     <Content Include="Views\CreditCardTypes\Create.cshtml" />
     <Content Include="Views\CreditCardTypes\Delete.cshtml" />
     <Content Include="Views\CreditCardTypes\Details.cshtml" />
@@ -441,6 +437,12 @@
     <Content Include="Views\PurchaseOrderStatus\Index.cshtml" />
     <Content Include="Views\ProductCatalog\Catalog.cshtml" />
     <Content Include="Views\ProductCatalog\ProductDetail.cshtml" />
+    <Content Include="Views\PurchaseOrders\Create.cshtml" />
+    <Content Include="Views\PurchaseOrders\Delete.cshtml" />
+    <Content Include="Views\PurchaseOrders\Details.cshtml" />
+    <Content Include="Views\PurchaseOrders\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrders\Index.cshtml" />
+    <Content Include="Views\Shared\EmployeePortal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
