@@ -210,6 +210,8 @@
     <Compile Include="Controllers\ProductCatalogController.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.cs" />
     <Compile Include="Controllers\PurchaseOrderStatusController.cs" />
+    <Compile Include="Controllers\RoleAdminController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="CustomHtmlHelpers\CustomHtmlHelpers.cs" />
     <Compile Include="DAL\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -283,6 +285,18 @@
     <Compile Include="Migrations\201612050942264_populateOrderStatus.Designer.cs">
       <DependentUpon>201612050942264_populateOrderStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612090426334_addingIdentityTablesAccess.cs" />
+    <Compile Include="Migrations\201612090426334_addingIdentityTablesAccess.Designer.cs">
+      <DependentUpon>201612090426334_addingIdentityTablesAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612091659108_addingRoleTableAccessModel.cs" />
+    <Compile Include="Migrations\201612091659108_addingRoleTableAccessModel.Designer.cs">
+      <DependentUpon>201612091659108_addingRoleTableAccessModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612091700570_addingRoleTableAccessModel1.cs" />
+    <Compile Include="Migrations\201612091700570_addingRoleTableAccessModel1.Designer.cs">
+      <DependentUpon>201612091700570_addingRoleTableAccessModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
@@ -301,6 +315,7 @@
     <Compile Include="Models\PurchaseOrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\CatalogProducts\BlackShirt.jpg" />
@@ -443,6 +458,16 @@
     <Content Include="Views\PurchaseOrders\Edit.cshtml" />
     <Content Include="Views\PurchaseOrders\Index.cshtml" />
     <Content Include="Views\Shared\EmployeePortal.cshtml" />
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Views\UserAdmin\Index.cshtml" />
+    <Content Include="Views\UserAdmin\Edit.cshtml" />
+    <Content Include="Views\UserAdmin\Delete.cshtml" />
+    <Content Include="Views\UserAdmin\Create.cshtml" />
+    <Content Include="Views\UserAdmin\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -506,6 +531,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612050942264_populateOrderStatus.resx">
       <DependentUpon>201612050942264_populateOrderStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612090426334_addingIdentityTablesAccess.resx">
+      <DependentUpon>201612090426334_addingIdentityTablesAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612091659108_addingRoleTableAccessModel.resx">
+      <DependentUpon>201612091659108_addingRoleTableAccessModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612091700570_addingRoleTableAccessModel1.resx">
+      <DependentUpon>201612091700570_addingRoleTableAccessModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
