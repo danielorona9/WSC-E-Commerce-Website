@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WSC_E_Commerce_Website.DAL;
 using WSC_E_Commerce_Website.Models;
-
+using Microsoft.AspNet.Identity;
 namespace WSC_E_Commerce_Website.Controllers
 {
     public class HomeController : Controller
@@ -17,8 +18,8 @@ namespace WSC_E_Commerce_Website.Controllers
         public ActionResult Index()
         {      
             ViewBag.Message = "Hompage";
-            //var productCatalog = db.ProductCatalog.Include(p => p.JobType).Include(p => p.MediaType);
-            //return View(productCatalog.ToList());
+            
+            
             return View();
         }
 
@@ -36,10 +37,33 @@ namespace WSC_E_Commerce_Website.Controllers
             return View();
         }
 
+        //public ActionResult EmployeePortal()
+        //{
+        //    if (User.Identity.IsAuthenticated && User.IsInRole("CanManageCatalog")) 
+        //    {
+        //        return View("EmployeePortal");
+        //    }
+        //    else
+        //    {
+        //        return View("Index");
+        //    }
+
+        //}
+       
         public ActionResult EmployeePortal()
         {
+            if (User.Identity.IsAuthenticated && User.IsInRole("CanManageCatalog"))
+            {
+                var user = db.Users.Include(u => u.Roles);
 
-            return View();
+                return View("EmployeePortal", user);
+            }
+            else
+            {
+                return View("Index");
+            }
+
         }
+
     }
 }

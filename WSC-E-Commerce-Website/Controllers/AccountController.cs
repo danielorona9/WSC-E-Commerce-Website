@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -14,6 +15,8 @@ namespace WSC_E_Commerce_Website.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -176,6 +179,29 @@ namespace WSC_E_Commerce_Website.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        
+        public ActionResult AddRole(string username, string role)
+        {
+
+
+            //
+            ////tempcode
+            //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+            //var roleManager = new RoleManager<IdentityRole>(roleStore);
+            //await roleManager.CreateAsync(new IdentityRole("CanManageCatalog"));
+            //await UserManager.AddToRoleAsync(user.Id, "canManageCatalog");
+            return View();
+        }
+
+        //public async Task<ActionResult>CreateRole(IdentityRole roles )
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //      var role = db.Roles  
+        //    }
+        //    return View();
+        //}
 
         //
         // GET: /Account/ConfirmEmail
