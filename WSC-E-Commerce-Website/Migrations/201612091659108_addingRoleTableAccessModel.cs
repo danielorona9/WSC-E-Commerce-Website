@@ -8,6 +8,7 @@ namespace WSC_E_Commerce_Website.Migrations
         public override void Up()
         {
             AddColumn("dbo.Roles", "Description", c => c.String(nullable: false, maxLength: 128));
+            AddColumn("dbo.Roles", "Discrimination", c => c.String(nullable: true, maxLength: (40)));
         }
         
         public override void Down()
