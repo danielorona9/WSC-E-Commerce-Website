@@ -179,31 +179,7 @@ namespace WSC_E_Commerce_Website.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
         
-        public ActionResult AddRole(string username, string role)
-        {
-
-
-            //
-            ////tempcode
-            //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
-            //var roleManager = new RoleManager<IdentityRole>(roleStore);
-            //await roleManager.CreateAsync(new IdentityRole("CanManageCatalog"));
-            //await UserManager.AddToRoleAsync(user.Id, "canManageCatalog");
-            return View();
-        }
-
-        //public async Task<ActionResult>CreateRole(IdentityRole roles )
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //      var role = db.Roles  
-        //    }
-        //    return View();
-        //}
-
-        //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
