@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Microsoft.ApplicationInsights.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
 using WSC_E_Commerce_Website.Models;
 
@@ -29,8 +30,12 @@ namespace WSC_E_Commerce_Website.DAL
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<ApplicationUser>().ToTable("User").Property(p => p.Id).HasColumnName("UserID");
-            modelBuilder.Entity<IdentityUserRole>().ToTable("UserRole");
+
+            modelBuilder.Entity<ApplicationUser>().ToTable("User").Property(p => p.Id).HasColumnName("UserID");           
+          //  modelBuilder.Entity<IdentityUserRole>().ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserRole>()
+                .HasKey((IdentityUserRole r) => new {r.UserId, r.RoleId})
+                .ToTable("UserRole");
             modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogin");
             modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaim").Property(p => p.Id).HasColumnName("UserClaimID");
             modelBuilder.Entity<IdentityRole>().ToTable("Roles").Property(p => p.Id).HasColumnName("RoleID");
