@@ -64,6 +64,7 @@ namespace WSC_E_Commerce_Website.Models
         public bool RememberMe { get; set; }
     }
 
+   
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "Enter your first name")]

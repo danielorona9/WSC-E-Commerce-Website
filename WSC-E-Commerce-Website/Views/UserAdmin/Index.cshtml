@@ -1,5 +1,6 @@
-﻿@model IEnumerable<WSC_E_Commerce_Website.Models.ApplicationUser>
-
+﻿@*@model IEnumerable<WSC_E_Commerce_Website.Models.ApplicationUser>*@
+@*@using WSC_E_Commerce_Website.ViewModels*@
+@model IEnumerable<WSC_E_Commerce_Website.ViewModels.ListUsersWithRolesViewModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -12,10 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserName)
+          @*  @Html.DisplayNameFor(model => model.Userid)*@
         </th>
         <th>
-
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roles)
         </th>
     </tr>
 
@@ -23,12 +27,18 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
+              @*  @Html.DisplayNameFor(modelItem => Model.Userid)*@
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.DisplayFor(modelItem => Model.)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.roles)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = Model.Userid}) |
+                @Html.ActionLink("Details", "Details", new { id = Model.Userid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Userid })
             </td>
         </tr>
     }
