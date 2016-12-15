@@ -140,10 +140,10 @@ namespace WSC_E_Commerce_Website.Controllers
 
                      if (!ARresults.Succeeded)
                     {
-                 
-                    return RedirectToAction("Index", userViewModel);
+                        return RedirectToAction("Index", userViewModel);
                     }
-                   
+
+                    return RedirectToAction("Index", userViewModel);
                 }
                 else
                 {
