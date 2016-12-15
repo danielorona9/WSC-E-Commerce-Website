@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -14,6 +15,7 @@ using WSC_E_Commerce_Website.DAL;
 
 namespace WSC_E_Commerce_Website.Controllers
 {
+    [Authorize(Roles = SecurityRoles.Admin)]
     public class UserAdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -45,22 +47,50 @@ namespace WSC_E_Commerce_Website.Controllers
         }
 
         //
-        // GET: /Users/
-        public async Task<ActionResult> Index()
-        {
-            return View(await UserManager.Users.ToListAsync());
-            
+        //// GET: /UsersAdmin/
+        public ActionResult Index()
+        {       
+            var OProle = (from r in db.Roles where r.Name.Contains(SecurityRoles.OperationsManager) select r).FirstOrDefault();
+            var OPusers = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(OProle.Id)).ToList();
+
+            var userVM = OPusers.Select(user => new UserViewModel
+            {
+                UserId = user.Id,
+                Username = user.UserName,
+                Email = user.Email,
+                RoleName = SecurityRoles.OperationsManager
+            }).ToList();
+            /***************************************************************************************/
+            var adminRole = (from r in db.Roles where r.Name.Contains(SecurityRoles.Admin) select r).FirstOrDefault();
+            var admins = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(adminRole.Id)).ToList();
+
+            var adminVm = admins.Select(user => new UserViewModel
+            {
+                UserId = user.Id,
+                Username = user.UserName,
+                Email = user.Email,
+                RoleName = SecurityRoles.Admin
+            }).ToList();
+            /*************************************************************************************/
+            var SCrole = (from r in db.Roles where r.Name.Contains(SecurityRoles.SalesClerk) select r).FirstOrDefault();
+            var SalesClerk = db.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(SCrole.Id)).ToList();
+
+            var SaleClerkVM = SalesClerk.Select(user => new UserViewModel
+            {
+                UserId = user.Id,
+                Username = user.UserName,
+                Email = user.Email,
+                RoleName = SecurityRoles.SalesClerk
+            }).ToList();
+            /**************************************************************************************/
+
+            var model = new GroupedUserViewModel { OperationsManager = userVM, Admin = adminVm, SaleClerk = SaleClerkVM};
+            return View(model);
 
         }
-        //public async Task<ActionResult> Index()
-        //{
-        //    return View(await UserManager.Users.ToListAsync());
-        //}
-
-
-        //
-        // GET: /Users/Details/5
-        public ActionResult Details (string id)
+     
+        // GET: /UsersAdmin/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -69,54 +99,51 @@ namespace WSC_E_Commerce_Website.Controllers
             var user = db.Users.Find(id);
 
 
-            return View("Details",user);
+            return View("Details", user);
         }
 
         //
-        // GET: /Users/Create
+        // GET: /UsersAdmin/Create
         public ActionResult Create()
         {
-            //Get the list of Roles
-           // var user = await RoleManager.Roles.ToListAsync();
-            ViewBag.RoleId = new SelectList(db.Roles.ToList(),"Name","Name");
-           
+            //Get the list of Roles           
+            ViewBag.RoleId = new SelectList(db.Roles.ToList(), "Name", "Name");
+
             return View();
         }
 
-       
+
         //
-        // POST: /Users/Create
-        [HttpPost]     
+        // POST: /UsersAdmin/Create
+        [HttpPost]
         public async Task<ActionResult> Create(AddRoleToUserViewModel userViewModel, params string[] selectedRoles)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = userViewModel.RegisterViewModel.Email, Email = userViewModel.RegisterViewModel.Email, FirstName = userViewModel.RegisterViewModel.FirstName, LastName = userViewModel.RegisterViewModel.LastName, Address1 = userViewModel.RegisterViewModel.Address1, Address2 = userViewModel.RegisterViewModel.Address2, City = userViewModel.RegisterViewModel.City, State = userViewModel.RegisterViewModel.State, Zip = userViewModel.RegisterViewModel.Zip };
-                var result = await UserManager.CreateAsync(user, userViewModel.RegisterViewModel.Password);            
+                var user = new ApplicationUser
+                {
+                    UserName = userViewModel.RegisterViewModel.Email,
+                    Email = userViewModel.RegisterViewModel.Email,
+                    FirstName = userViewModel.RegisterViewModel.FirstName,
+                    LastName = userViewModel.RegisterViewModel.LastName,
+                    Address1 = userViewModel.RegisterViewModel.Address1,
+                    Address2 = userViewModel.RegisterViewModel.Address2,
+                    City = userViewModel.RegisterViewModel.City,
+                    State = userViewModel.RegisterViewModel.State,
+                    Zip = userViewModel.RegisterViewModel.Zip
+                };
+                var result = await UserManager.CreateAsync(user, userViewModel.RegisterViewModel.Password);
                 //Add User to the selected Roles 
                 if (result.Succeeded)
                 {
-                    // if (!string.IsNullOrEmpty(roleId))
-                    //  {
-                   // var UserRole = new IdentityUserRole() {RoleId = roleid, UserId = user.Id};
-                   // var roleResult = await UserManager.AddToRoleAsync();
-                    
-                     // var roleStore = await RoleManager.FindByIdAsync(selectedRoles);
-                    var ARresults =  await UserManager.AddToRolesAsync(user.Id, selectedRoles);   
-                                
-                    //var store = new UserStore<ApplicationUser>(db);
-                    //var manager = new UserManager<ApplicationUser>(store);
-                    //manager.AddToRole(user.Id, "<Role>");
-                       // if (!result.Succeeded)
-                       // {
-                       //  ModelState.AddModelError("", result.Errors.First());
-                       // var roleStore = new RoleStore<Roles>(new ApplicationDbContext());
-                       //  var roleManager = new RoleManager<Roles>(roleStore);
-                       // await roleManager.CreateAsync(new Roles(selectedRoles));
-                       //ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Id", "Name");
+                    var ARresults = await UserManager.AddToRolesAsync(user.Id, selectedRoles);
+
+                     if (!ARresults.Succeeded)
+                    {
+                 
                     return RedirectToAction("Index", userViewModel);
-                       // }
-                   // }
+                    }
+                   
                 }
                 else
                 {
@@ -124,7 +151,7 @@ namespace WSC_E_Commerce_Website.Controllers
                     ViewBag.RoleId = new SelectList(db.Roles, "Id", "Name");
                     return View();
                 }
-               // return RedirectToAction("Index");
+                // return RedirectToAction("Index");
             }
             ViewBag.RoleId = new SelectList(db.Roles, "Id", "Name");
             return View();
