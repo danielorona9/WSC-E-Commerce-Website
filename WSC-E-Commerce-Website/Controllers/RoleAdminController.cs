@@ -4,10 +4,11 @@ using System.Net;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity.EntityFramework;
 using WSC_E_Commerce_Website.DAL;
+using WSC_E_Commerce_Website.Models;
 
 namespace WSC_E_Commerce_Website.Controllers
 {
-    [Authorize]
+    [Authorize (Roles = SecurityRoles.Admin)]
     public class RolesAdminController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
