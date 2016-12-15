@@ -37,26 +37,21 @@ namespace WSC_E_Commerce_Website.Controllers
             return View();
         }
 
-        //public ActionResult EmployeePortal()
-        //{
-        //    if (User.Identity.IsAuthenticated && User.IsInRole("CanManageCatalog")) 
-        //    {
-        //        return View("EmployeePortal");
-        //    }
-        //    else
-        //    {
-        //        return View("Index");
-        //    }
-
-        //}
-       
+      
+        [Authorize]
         public ActionResult EmployeePortal()
         {
-            if (User.Identity.IsAuthenticated && User.IsInRole("CanManageCatalog"))
+            if (User.Identity.IsAuthenticated && User.IsInRole(SecurityRoles.Admin))
+            {             
+                return View("EmployeePortal");
+            }
+            else if (User.Identity.IsAuthenticated && User.IsInRole(SecurityRoles.OperationsManager))
             {
-                var user = db.Users.Include(u => u.Roles);
-
-                return View("EmployeePortal", user);
+                return View("EmployeePortal");
+            }
+            else if (User.Identity.IsAuthenticated && User.IsInRole(SecurityRoles.SalesClerk))
+            {
+                return View("EmployeePortal");
             }
             else
             {
