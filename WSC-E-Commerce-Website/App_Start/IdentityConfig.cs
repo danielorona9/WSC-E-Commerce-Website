@@ -112,7 +112,7 @@ namespace WSC_E_Commerce_Website
             base.Seed(context);
         }
 
-        //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
+        //Create User=Admin@WSC.com with password=Password#1 in the Admin role        
         public static void InitializeIdentityForEF(ApplicationDbContext db)
         {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
