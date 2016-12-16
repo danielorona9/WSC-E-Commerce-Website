@@ -20,6 +20,8 @@ namespace WSC_E_Commerce_Website.Models
         [ForeignKey("OrderType")]
         public int OrderTypeID { get; set; }   
 
+        public string CartID { get; set; }
+
 
         [Display(Name = "Date Ordered")]
         [DataType(DataType.Date)]

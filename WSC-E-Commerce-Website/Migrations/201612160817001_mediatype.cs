@@ -8,6 +8,10 @@ namespace WSC_E_Commerce_Website.Migrations
         public override void Up()
         {
 
+            Sql(@"INSERT INTO [dbo].[MediaTypes] ([MediaTypeName]) VALUES (N'Cloth')
+                  INSERT INTO[dbo].[MediaTypes]([MediaTypeName]) VALUES(N'Plaque')
+                  INSERT INTO[dbo].[MediaTypes] ([MediaTypeName]) VALUES(N'Trophy')");
+
             Sql(@"
                 INSERT INTO [dbo].[ProductCatalog] ( [JobTypeID], [MediaTypeID], [Price], [Description], [StockAvailable], [ProductImage]) VALUES ( 1, 1, CAST(19.99 AS Decimal(18, 2)), N'Blank Black Shirt', 100, N'~/content/images/CatalogProducts/BlackShirt.jpg')
                 INSERT INTO [dbo].[ProductCatalog] ( [JobTypeID], [MediaTypeID], [Price], [Description], [StockAvailable], [ProductImage]) VALUES ( 1, 1, CAST(19.99 AS Decimal(18, 2)), N'Blank Grey Shirt', 100, N'~/content/images/CatalogProducts/GreyShirt.jpg')

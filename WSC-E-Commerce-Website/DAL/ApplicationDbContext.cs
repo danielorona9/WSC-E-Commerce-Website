@@ -23,6 +23,8 @@ namespace WSC_E_Commerce_Website.DAL
         public DbSet<MediaTypes> MediaTypes { get; set; }
         public DbSet<OrderRequest> OrderRequests { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -58,6 +60,13 @@ namespace WSC_E_Commerce_Website.DAL
                 .WithMany(a => a.PurchaseOrders)
                 .HasForeignKey(n => n.ApplicationUserID)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Order>()
+                .HasRequired(n => n.ApplicationUser)
+                .WithMany(a => a.Order)
+                .HasForeignKey(n => n.ApplicationUserId)
+                .WillCascadeOnDelete(false);
+                
         }
 
         public System.Data.Entity.DbSet<WSC_E_Commerce_Website.Models.EmployeeType> EmployeeTypes { get; set; }

@@ -64,7 +64,9 @@ namespace WSC_E_Commerce_Website.Models
         public virtual ICollection<BillingInfo> BillingInfo { get; set; }
         public virtual ICollection<PurchaseOrders> PurchaseOrders { get; set; }
         public virtual ICollection<IdentityUserRole> UserRoles { get; set; }
-        public virtual ICollection<IdentityUserLogin> UserLogins { get; set; }        
+        public virtual ICollection<IdentityUserLogin> UserLogins { get; set; }   
+        
+        public virtual ICollection<Order> Order { get; set; }     
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

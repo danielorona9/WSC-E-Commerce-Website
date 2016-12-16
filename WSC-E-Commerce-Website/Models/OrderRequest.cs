@@ -16,7 +16,10 @@ namespace WSC_E_Commerce_Website.Models
         [ForeignKey("PurchaseOrders")]
         public int PurchaseOrdersID { get; set; }
 
-        public string CartId { get; set; }
+       
+        public int OrderId { get; set; }
+
+      
 
         [Required(ErrorMessage ="Enter quantity amount")]
         [Display(Name = "Quantity")]
@@ -30,8 +33,11 @@ namespace WSC_E_Commerce_Website.Models
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+
+
         //connected tables on the one side
         public virtual ProductCatalog ProductCatalog { get; set; }
         public virtual PurchaseOrders PurchaseOrders { get; set; }
+        public virtual Order Orders { get; set; }
     }
 }

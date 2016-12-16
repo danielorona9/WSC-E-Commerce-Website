@@ -242,6 +242,26 @@
     <Compile Include="Migrations\201612160817001_mediatype.Designer.cs">
       <DependentUpon>201612160817001_mediatype.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612160935309_AddOrderTable.cs" />
+    <Compile Include="Migrations\201612160935309_AddOrderTable.Designer.cs">
+      <DependentUpon>201612160935309_AddOrderTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612160942547_Orders.cs" />
+    <Compile Include="Migrations\201612160942547_Orders.Designer.cs">
+      <DependentUpon>201612160942547_Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612160955493_ordermig.cs" />
+    <Compile Include="Migrations\201612160955493_ordermig.Designer.cs">
+      <DependentUpon>201612160955493_ordermig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612161008504_cartID.cs" />
+    <Compile Include="Migrations\201612161008504_cartID.Designer.cs">
+      <DependentUpon>201612161008504_cartID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612161018088_changetype.cs" />
+    <Compile Include="Migrations\201612161018088_changetype.Designer.cs">
+      <DependentUpon>201612161018088_changetype.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
@@ -253,6 +273,7 @@
     <Compile Include="Models\JobTypes.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MediaTypes.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderRequest.cs" />
     <Compile Include="Models\OrderType.cs" />
     <Compile Include="Models\ProductCatalog.cs" />
@@ -449,6 +470,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612160817001_mediatype.resx">
       <DependentUpon>201612160817001_mediatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612160935309_AddOrderTable.resx">
+      <DependentUpon>201612160935309_AddOrderTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612160942547_Orders.resx">
+      <DependentUpon>201612160942547_Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612160955493_ordermig.resx">
+      <DependentUpon>201612160955493_ordermig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612161008504_cartID.resx">
+      <DependentUpon>201612161008504_cartID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612161018088_changetype.resx">
+      <DependentUpon>201612161018088_changetype.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
