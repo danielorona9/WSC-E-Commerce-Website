@@ -289,6 +289,10 @@
     <Compile Include="Migrations\201612091700570_addingRoleTableAccessModel1.Designer.cs">
       <DependentUpon>201612091700570_addingRoleTableAccessModel1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612160436567_loss.cs" />
+    <Compile Include="Migrations\201612160436567_loss.Designer.cs">
+      <DependentUpon>201612160436567_loss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
@@ -528,6 +532,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612091700570_addingRoleTableAccessModel1.resx">
       <DependentUpon>201612091700570_addingRoleTableAccessModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612160436567_loss.resx">
+      <DependentUpon>201612160436567_loss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

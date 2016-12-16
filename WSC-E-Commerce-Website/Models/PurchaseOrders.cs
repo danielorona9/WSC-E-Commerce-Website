@@ -9,8 +9,7 @@ namespace WSC_E_Commerce_Website.Models
     public class PurchaseOrders
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PurchaseOrdersID { get; set; }
+        public string PurchaseOrdersID { get; set; }
 
         [ForeignKey("PurchaseOrderStatus")]
         public int PurchaseOrderStatuesID { get; set; }

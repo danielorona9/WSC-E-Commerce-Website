@@ -11,7 +11,7 @@ namespace WSC_E_Commerce_Website.Migrations
                 "dbo.PurchaseOrders",
                 c => new
                     {
-                        PurchaseOrdersID = c.Int(nullable: false, identity: true),
+                        PurchaseOrdersID = c.String(nullable: false, maxLength:128),
                         PurchaseOrderStatuesID = c.Int(nullable: false),
                         EmployeeID = c.Int(nullable: false),
                         OrderTypeID = c.Int(nullable: false),
@@ -35,7 +35,7 @@ namespace WSC_E_Commerce_Website.Migrations
                 c => new
                     {
                         BillingID = c.Int(nullable: false, identity: true),
-                        PurchaseOrdersID = c.Int(nullable: false),
+                        PurchaseOrdersID = c.String(nullable: false, maxLength:128),
                         BillingDueDate = c.DateTime(nullable: false),
                         BillingPaiddueDate = c.DateTime(nullable: false),
                         Balance = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -75,7 +75,7 @@ namespace WSC_E_Commerce_Website.Migrations
                     {
                         OrderRequestID = c.Int(nullable: false, identity: true),
                         ProductCatalogID = c.Int(nullable: false),
-                        PurchaseOrdersID = c.Int(nullable: false),
+                        PurchaseOrdersID = c.String(nullable: false, maxLength:128),
                         Quantity = c.Int(nullable: false),
                         Content = c.String(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -135,7 +135,7 @@ namespace WSC_E_Commerce_Website.Migrations
                 "dbo.PurchaseOrderStatus",
                 c => new
                     {
-                        PurchaseOrderStatusID = c.Int(nullable: false, identity: true),
+                        PurchaseOrderStatusID = c.Int(nullable: false, identity:true),
                         StatusName = c.String(),
                     })
                 .PrimaryKey(t => t.PurchaseOrderStatusID);
