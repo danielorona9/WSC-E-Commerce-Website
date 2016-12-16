@@ -112,10 +112,10 @@ namespace WSC_E_Commerce_Website.Models
             return total ?? decimal.Zero;
         }
 
-        public int CreateOrder()
-        {
+        //public int CreateOrder()
+        //{
             
-        }
+        //}
 
 
     }

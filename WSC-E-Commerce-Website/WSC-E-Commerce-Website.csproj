@@ -242,6 +242,10 @@
     <Compile Include="Migrations\201612160817001_mediatype.Designer.cs">
       <DependentUpon>201612160817001_mediatype.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612160844111_productCatalogPopulate.cs" />
+    <Compile Include="Migrations\201612160844111_productCatalogPopulate.Designer.cs">
+      <DependentUpon>201612160844111_productCatalogPopulate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
@@ -449,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612160817001_mediatype.resx">
       <DependentUpon>201612160817001_mediatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612160844111_productCatalogPopulate.resx">
+      <DependentUpon>201612160844111_productCatalogPopulate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
