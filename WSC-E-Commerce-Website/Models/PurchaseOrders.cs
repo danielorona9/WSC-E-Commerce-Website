@@ -9,7 +9,7 @@ namespace WSC_E_Commerce_Website.Models
     public class PurchaseOrders
     {
         [Key]
-        public string PurchaseOrdersID { get; set; }
+        public int PurchaseOrdersID { get; set; }
 
         [ForeignKey("PurchaseOrderStatus")]
         public int PurchaseOrderStatuesID { get; set; }
@@ -18,7 +18,8 @@ namespace WSC_E_Commerce_Website.Models
         public int EmployeeID { get; set; }
 
         [ForeignKey("OrderType")]
-        public int OrderTypeID { get; set; }     
+        public int OrderTypeID { get; set; }   
+
 
         [Display(Name = "Date Ordered")]
         [DataType(DataType.Date)]
@@ -39,6 +40,7 @@ namespace WSC_E_Commerce_Website.Models
         public virtual Employee Employee { get; set; }
         public virtual OrderType OrderType { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+
 
         //connected tables on the many side
         public virtual ICollection<Billing> Billing { get; set; }
