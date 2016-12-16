@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Async;
 using WSC_E_Commerce_Website.DAL;
+using WSC_E_Commerce_Website.Models;
 using WSC_E_Commerce_Website.ViewModels;
- 
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 namespace WSC_E_Commerce_Website.Models
 {
     public partial class ShoppingCart
     {
-       
         ApplicationDbContext db = new ApplicationDbContext();
 
         // variable to store cart session key
@@ -21,7 +24,7 @@ namespace WSC_E_Commerce_Website.Models
         public static ShoppingCart GetCart(HttpContextBase context)
         {
             var cart = new ShoppingCart();
-            //cart.ShoppingCartId = cart.GetCartId(context);
+            cart.ShoppingCartId = cart.GetCartId(context);
             return cart;
         }
 
@@ -30,47 +33,57 @@ namespace WSC_E_Commerce_Website.Models
             return GetCart(controller.HttpContext);
         }
 
-        // TODO: fix item
+        //TODO fix addToCart
         public void AddToCart(ProductCatalog productOrder)
         {
+            //gets the id of the current user
+            var user = System.Web.HttpContext.Current.User.Identity.GetUserId();
+
             var cartItem = db.PurchaseOrders.SingleOrDefault(c => c.CartID == ShoppingCartId
-                                                                 && c.ProductCatalogID == productOrder.ProductCatalogID);
+                                                                  && c.ProductCatalogID == productOrder.ProductCatalogID);
 
 
             if (cartItem == null)
             {
                 cartItem = new PurchaseOrders
                 {
+                    ApplicationUserID = user,
                     ProductCatalogID = productOrder.ProductCatalogID,
-                    CartId = ShoppingCartId,
-                    Quantity = 1
+                    CartID = ShoppingCartId,
+                    Count = 1,
+                    OrderDate = DateTime.Now,
+                    Total = 0,
+                    Deposit = 0,
+                    OrderTypeID = 1,//cartItem.OrderTypeID,
+                    PurchaseOrderStatuesID = 1//cartItem.PurchaseOrderStatuesID
                 };
-                db.OrderRequests.Add(cartItem);
+
+                db.PurchaseOrders.Add(cartItem);
             }
             else
             {
-                cartItem.Quantity++;
+                cartItem.Count++;
             }
 
-            db.SaveChanges();
+             db.SaveChanges();
         }
 
         public int RemoveFromCart(int id)
         {
-            var cartItem = db.OrderRequests.Single(cart => cart.CartId == ShoppingCartId && cart.OrderRequestID == id);
+            var cartItem = db.PurchaseOrders.Single(cart => cart.CartID == ShoppingCartId && cart.PurchaseOrdersID == id);
 
             int itemCount = 0;
 
             if (cartItem != null)
             {
-                if (cartItem.Quantity > 1)
+                if (cartItem.Count > 1)
                 {
-                    cartItem.Quantity--;
-                    itemCount = cartItem.Quantity;
+                    cartItem.Count--;
+                    itemCount = cartItem.Count;
                 }
                 else
                 {
-                    db.OrderRequests.Remove(cartItem);
+                    db.PurchaseOrders.Remove(cartItem);
                 }
 
                 db.SaveChanges();
@@ -80,36 +93,36 @@ namespace WSC_E_Commerce_Website.Models
 
         public void EmptyCart()
         {
-            var cartItems = db.OrderRequests.Where(cart => cart.CartId == ShoppingCartId);
+            var cartItems = db.PurchaseOrders.Where(cart => cart.CartID == ShoppingCartId);
 
             foreach (var cartItem in cartItems)
             {
-                db.OrderRequests.Remove(cartItem);
+                db.PurchaseOrders.Remove(cartItem);
             }
 
             db.SaveChanges();
         }
 
-        
-        public List<OrderRequest> GetCartItems()
+
+        public List<PurchaseOrders> GetCartItems()
         {
-            return db.OrderRequests.Where(cart => cart.CartId == ShoppingCartId).ToList();
+            return db.PurchaseOrders.Where(cart => cart.CartID == ShoppingCartId).ToList();
         }
 
         public int GetCount()
         {
-            int? count = (from cartItems in db.OrderRequests
-                where cartItems.CartId == ShoppingCartId
-                select (int?) cartItems.Quantity).Sum();
+            int? count = (from cartItems in db.PurchaseOrders
+                where cartItems.CartID == ShoppingCartId
+                select (int?) cartItems.Count).Sum();
 
             return count ?? 0;
         }
 
         public decimal GetTotal()
         {
-            decimal? total = (from cartItems in db.OrderRequests
-                where cartItems.CartId == ShoppingCartId
-                select (int?) cartItems.Quantity*cartItems.ProductCatalog.Price).Sum();
+            decimal? total = (from cartItems in db.PurchaseOrders
+                where cartItems.CartID == ShoppingCartId
+                select (int?) cartItems.Count*cartItems.ProductCatalog.Price).Sum();
 
             return total ?? decimal.Zero;
         }
@@ -126,14 +139,14 @@ namespace WSC_E_Commerce_Website.Models
             {
                 var orderDetail = new OrderRequest
                 {
-                    OrderId = order.OrderId,
                     ProductCatalogID = item.ProductCatalogID,
-                    Price = item.Price,
-                    Quantity = item.Quantity
+                    OrderId = order.OrderId,
+                    Price = item.ProductCatalog.Price,
+                    Quantity = item.Count
                 };
 
                 // Set the order total of the shopping cart                 
-                orderTotal += (item.Quantity*item.Price);
+                orderTotal += (item.Count*item.ProductCatalog.Price);
 
                 db.OrderRequests.Add(orderDetail);
             }
@@ -180,19 +193,17 @@ namespace WSC_E_Commerce_Website.Models
 
         // When a user has logged in, migrate their shopping cart to         
         // be associated with their username    
-        
-           
+
+
         public void MigrateCart(string userName)
         {
-            var shoppingCart = db.OrderRequests.Where(c => c.CartId == ShoppingCartId);
+            var shoppingCart = db.PurchaseOrders.Where(c => c.CartID == ShoppingCartId);
 
-            foreach (Cart item in shoppingCart)
+            foreach (PurchaseOrders item in shoppingCart)
             {
-                item.CartId = userName;
+                item.CartID = userName;
             }
             db.SaveChanges();
         }
-       
-    } 
-   
+    }
 }

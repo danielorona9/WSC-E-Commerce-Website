@@ -20,6 +20,8 @@ namespace WSC_E_Commerce_Website.Models
         [ForeignKey("MediaType")]
         public int MediaTypeID { get; set; }
 
+        public int SkewNumber {get;set;}
+
         [Required(ErrorMessage = "Enter price of the product")]
         [Display(Name = "Product Price")]
         [DataType(DataType.Currency)]

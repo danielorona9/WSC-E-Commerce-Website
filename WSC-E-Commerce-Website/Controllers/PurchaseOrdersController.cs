@@ -20,8 +20,7 @@ namespace WSC_E_Commerce_Website.Controllers
         {
             var purchaseOrders = 
                 db.PurchaseOrders
-                .Include(p => p.ApplicationUser)
-                .Include(p => p.Employee)
+                .Include(p => p.ApplicationUser)         
                 .Include(p => p.OrderType)
                 .Include(p => p.PurchaseOrderStatus);
 
@@ -47,10 +46,10 @@ namespace WSC_E_Commerce_Website.Controllers
         // GET: PurchaseOrders/Create
         public ActionResult Create()
         {
-            ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName");
+            ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "FirstName");           
             ViewBag.OrderTypeID = new SelectList(db.OrderTypes, "OrderTypeID", "OrderTypeName");
             ViewBag.PurchaseOrderStatuesID = new SelectList(db.PurchaseOrderStatuses, "PurchaseOrderStatusID", "StatusName");
+            
             return View();
         }
 
@@ -59,7 +58,7 @@ namespace WSC_E_Commerce_Website.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PurchaseOrdersID,PurchaseOrderStatuesID,EmployeeID,OrderTypeID,OrderDate,Total,Deposit,ApplicationUserID")] PurchaseOrders purchaseOrders)
+        public ActionResult Create([Bind(Include = "PurchaseOrdersID,PurchaseOrderStatuesID,EmployeeID,OrderTypeID,OrderDate,Total,Deposit,ApplicationUserID, RecordId, CartID, ProductCatalogId, Count ")] PurchaseOrders purchaseOrders)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +68,6 @@ namespace WSC_E_Commerce_Website.Controllers
             }
 
             ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "FirstName", purchaseOrders.ApplicationUserID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", purchaseOrders.EmployeeID);
             ViewBag.OrderTypeID = new SelectList(db.OrderTypes, "OrderTypeID", "OrderTypeName", purchaseOrders.OrderTypeID);
             ViewBag.PurchaseOrderStatuesID = new SelectList(db.PurchaseOrderStatuses, "PurchaseOrderStatusID", "StatusName", purchaseOrders.PurchaseOrderStatuesID);
             return View(purchaseOrders);
@@ -88,7 +86,6 @@ namespace WSC_E_Commerce_Website.Controllers
                 return HttpNotFound();
             }
             ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "FirstName", purchaseOrders.ApplicationUserID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", purchaseOrders.EmployeeID);
             ViewBag.OrderTypeID = new SelectList(db.OrderTypes, "OrderTypeID", "OrderTypeName", purchaseOrders.OrderTypeID);
             ViewBag.PurchaseOrderStatuesID = new SelectList(db.PurchaseOrderStatuses, "PurchaseOrderStatusID", "StatusName", purchaseOrders.PurchaseOrderStatuesID);
             return View(purchaseOrders);
@@ -108,7 +105,6 @@ namespace WSC_E_Commerce_Website.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ApplicationUserID = new SelectList(db.Users, "Id", "FirstName", purchaseOrders.ApplicationUserID);
-            ViewBag.EmployeeID = new SelectList(db.Employees, "EmployeeID", "FirstName", purchaseOrders.EmployeeID);
             ViewBag.OrderTypeID = new SelectList(db.OrderTypes, "OrderTypeID", "OrderTypeName", purchaseOrders.OrderTypeID);
             ViewBag.PurchaseOrderStatuesID = new SelectList(db.PurchaseOrderStatuses, "PurchaseOrderStatusID", "StatusName", purchaseOrders.PurchaseOrderStatuesID);
             return View(purchaseOrders);

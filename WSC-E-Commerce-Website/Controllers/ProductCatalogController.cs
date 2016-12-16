@@ -100,7 +100,7 @@ namespace WSC_E_Commerce_Website.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductCatalogID,JobTypeID,MediaTypeID,Price,Description,StockAvailable,ProductImage")] ProductCatalog productCatalog)
+        public ActionResult Create([Bind(Include = "ProductCatalogID,JobTypeID,MediaTypeID,Price,Description,StockAvailable,SkewNumber,ProductImage")] ProductCatalog productCatalog)
         {
             if (ModelState.IsValid)
             {
@@ -136,7 +136,7 @@ namespace WSC_E_Commerce_Website.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductCatalogID,JobTypeID,MediaTypeID,Price,Description,StockAvailable,ProductImage")] ProductCatalog productCatalog)
+        public ActionResult Edit([Bind(Include = "ProductCatalogID,JobTypeID,MediaTypeID,Price,Description,StockAvailable,SkewNumber,ProductImage")] ProductCatalog productCatalog)
         {
             if (ModelState.IsValid)
             {

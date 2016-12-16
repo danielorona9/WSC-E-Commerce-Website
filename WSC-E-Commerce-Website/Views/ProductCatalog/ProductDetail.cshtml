@@ -12,6 +12,12 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.SkewNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SkewNumber)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.JobType.JobTypeName)
         </dt>
 
@@ -61,8 +67,13 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "CatalogList","ProductCatalog")
+<p class="button">
+    @Html.ActionLink("Back to List", "CatalogList","ProductCatalog") 
+
+   
+</p>
+<p class="button">
+    @Html.ActionLink("Add to Cart", "AddToCart", "ShoppingCart", new { id = Model.ProductCatalogID }, null)
 </p>
 
 

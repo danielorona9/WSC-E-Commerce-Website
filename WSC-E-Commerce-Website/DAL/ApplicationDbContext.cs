@@ -69,8 +69,5 @@ namespace WSC_E_Commerce_Website.DAL
                 
         }
 
-        public System.Data.Entity.DbSet<WSC_E_Commerce_Website.Models.EmployeeType> EmployeeTypes { get; set; }
-
-        public System.Data.Entity.DbSet<WSC_E_Commerce_Website.Models.Employee> Employees { get; set; }
-    }
+      }
 }
