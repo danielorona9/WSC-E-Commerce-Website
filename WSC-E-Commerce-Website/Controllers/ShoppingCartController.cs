@@ -68,13 +68,14 @@ namespace WSC_E_Commerce_Website.Controllers
         }
 
 
-        //// GET: /ShoppingCart/CartSummary
-        //[ChildActionOnly]
-        //public ActionResult CartSummary()
-        //{
-        //    var cart = ShoppingCart.GetCart(this.HttpContext);
-        //    ViewData["CartCount"] = cart.GetCount();
-        //    return PartialView("CartSummary");
-        //}
+        // GET: /ShoppingCart/CartSummary
+       // [ChildActionOnly]
+        public ActionResult CartSummary()
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+           // ViewData["CartCount"] = cart.GetCount();
+            var cartCount = cart.GetCount();
+            return PartialView("CartSummary",cartCount);
+        }
     }
 }
