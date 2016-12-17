@@ -43,8 +43,20 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year Williams Specialty Company @Html.ActionLink("Employee Portal", "EmployeePortal", "Home")</p>
+        <footer >
+            <table>
+                <tr>
+                    <td>
+                        &copy; @DateTime.Now.Year Williams Specialty Company
+                    </td>
+                    <td>
+                   
+                    </td>
+                    <td>
+                        @Html.ActionLink("Employee Portal", "EmployeePortal", "Home")
+                    </td>
+                </tr>
+            </table>                                    
         </footer>
     </div>
 

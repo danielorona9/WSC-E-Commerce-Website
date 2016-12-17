@@ -3,6 +3,7 @@
     font-family: 'Anton', sans-serif;
     color: gray;
 }
+
 body {
     padding-top: 110px;
     padding-bottom: 20px;
@@ -56,4 +57,11 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+#footerLeft {
+    text-align: left;
+   
+}
+#footerRight {
+    text-align: right
 }
