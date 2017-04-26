@@ -11,13 +11,9 @@ namespace WSC_E_Commerce_Website.Models
         [Key]
         public int PurchaseOrdersID { get; set; }
 
-        [ForeignKey("PurchaseOrderStatus")]
-        public int PurchaseOrderStatuesID { get; set; }
-
-        [ForeignKey("OrderType")]
-        public int OrderTypeID { get; set; }   
-
+        //TODO Remove RecordId column from database
         public int RecordId { get; set; }
+
         public string CartID { get; set; }
 
         [ForeignKey("ProductCatalog")]
@@ -38,9 +34,7 @@ namespace WSC_E_Commerce_Website.Models
 
         public string ApplicationUserID { get; set; }
 
-        //connected tables on the one side
-        public virtual PurchaseOrderStatus PurchaseOrderStatus {get; set;}      
-        public virtual OrderType OrderType { get; set; }
+        //connected tables on the one side          
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual ProductCatalog ProductCatalog { get; set; }
 

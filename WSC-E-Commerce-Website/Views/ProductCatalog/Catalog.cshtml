@@ -1,34 +1,88 @@
-﻿@using WSC_E_Commerce_Website.CustomHtmlHelpers
+﻿@ViewData["JobTypes"]
+@using WSC_E_Commerce_Website.CustomHtmlHelpers
 @model IEnumerable<WSC_E_Commerce_Website.Models.ProductCatalog>
 
 @{
     ViewBag.Title = "Catalog";
 }
 
-@*<h2>SortByMediaTypeTrophy</h2>*@
+<br/>
+<hr/>
+
+@using (Html.BeginForm("SortBy", "ProductCatalog", FormMethod.Get))
+{
+    <div class="form-group">
+
+        <div class="col-md-10 col-lg-4 col-lg-push-3">
+
+            <table>
+                <tr>
+                    <td>
+                        @Html.DropDownList("JobTypeSelected", new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Printing", Value = "1"},
+                            new SelectListItem {Text = "Engraving", Value = "2"}
+                        }, "Select Job Type", new {@class = "form-control"})
+                    </td>
+                    <td>
+                        <input type="submit" value="Filter Job Type" class="btn btn-default"/>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+}
+@using (Html.BeginForm("SortByMedia", "ProductCatalog", FormMethod.Get))
+{
+    <div class="form-group">
+
+        <div class="col-md-10 col-lg-4 col-lg-push-2">
+            <table>
+                <tr>
+                    <td>
+                        @Html.DropDownList("MediaTypeSelected", new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Cloth", Value = "1"},
+                            new SelectListItem {Text = "Plaque", Value = "2"},
+                            new SelectListItem {Text = "Trophy", Value = "3"}
+                        }, "Select Media Type", new {@class = "form-control"})</td>
+                    <td>
+                        <input type="submit" value="Filter Media Type" class="btn btn-default"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+@using (Html.BeginForm("FilterOff", "ProductCatalog", FormMethod.Get))
+{
+    <div class="form-group">
+
+        <div class="col-md-10 col-lg-2 col-lg-push-2">
+            <table>
+                <tr>
+                    <td>                   
+                       <input type="submit" value="Filter Off" class="btn btn-default" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
 <br/>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.JobType.JobTypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MediaType.MediaTypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StockAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </th>
-        <th></th>
-    </tr>
+    <th>
+        @Html.DisplayNameFor(model => model.JobType.JobTypeName)
+
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.MediaType.MediaTypeName)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Price)
+    </th>
 
     @foreach (var item in Model)
     {
@@ -51,11 +105,14 @@
             <td>
                 @Html.Image(item.ProductImage, item.Description)
             </td>
-            <td>               
-                @Html.ActionLink("Details", "ProductDetail", new {id = item.ProductCatalogID}) |     
-                @Html.ActionLink("Add To Cart","AddToCart","ShoppingCart", new {id = item.ProductCatalogID}, null)
+            <td>
+                @Html.ActionLink("Details", "ProductDetail", new {id = item.ProductCatalogID}) |
+                @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new {id = item.ProductCatalogID}, new {@class = "addCart"})
             </td>
         </tr>
     }
 
+</table>
+<table id="catalog_List">
+    <tbody ></tbody>
 </table>

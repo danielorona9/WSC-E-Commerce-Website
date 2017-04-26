@@ -33,8 +33,8 @@ namespace WSC_E_Commerce_Website.Models
             return GetCart(controller.HttpContext);
         }
 
-        //TODO fix addToCart
-        public void AddToCart(ProductCatalog productOrder)
+        
+        public int AddToCart(ProductCatalog productOrder)
         {
             //gets the id of the current user
             var user = System.Web.HttpContext.Current.User.Identity.GetUserId();
@@ -53,9 +53,7 @@ namespace WSC_E_Commerce_Website.Models
                     Count = 1,
                     OrderDate = DateTime.Now,
                     Total = 0,
-                    Deposit = 0,
-                    OrderTypeID = 1,//cartItem.OrderTypeID,
-                    PurchaseOrderStatuesID = 1//cartItem.PurchaseOrderStatuesID
+                    Deposit = 0                 
                 };
 
                 db.PurchaseOrders.Add(cartItem);
@@ -66,8 +64,11 @@ namespace WSC_E_Commerce_Website.Models
             }
 
              db.SaveChanges();
+
+            return cartItem.Count;
         }
 
+        //Removes an item from cart
         public int RemoveFromCart(int id)
         {
             var cartItem = db.PurchaseOrders.Single(cart => cart.CartID == ShoppingCartId && cart.PurchaseOrdersID == id);
@@ -91,6 +92,7 @@ namespace WSC_E_Commerce_Website.Models
             return itemCount;
         }
 
+        //empty cart
         public void EmptyCart()
         {
             var cartItems = db.PurchaseOrders.Where(cart => cart.CartID == ShoppingCartId);
@@ -102,13 +104,14 @@ namespace WSC_E_Commerce_Website.Models
 
             db.SaveChanges();
         }
-
-
+        //***************************************************
+        //get cart items
         public List<PurchaseOrders> GetCartItems()
         {
             return db.PurchaseOrders.Where(cart => cart.CartID == ShoppingCartId).ToList();
         }
 
+        //getCount gets the quanty amount of each item in the cart
         public int GetCount()
         {
             int? count = (from cartItems in db.PurchaseOrders
@@ -118,6 +121,7 @@ namespace WSC_E_Commerce_Website.Models
             return count ?? 0;
         }
 
+        //get total dollar amount in the cart
         public decimal GetTotal()
         {
             decimal? total = (from cartItems in db.PurchaseOrders
@@ -186,15 +190,12 @@ namespace WSC_E_Commerce_Website.Models
             }
 
             return
-                context.Session[CartSessionKey
-                    ].
-                    ToString();
+                context.Session[CartSessionKey]
+                                .ToString();
         }
 
         // When a user has logged in, migrate their shopping cart to         
         // be associated with their username    
-
-
         public void MigrateCart(string userName)
         {
             var shoppingCart = db.PurchaseOrders.Where(c => c.CartID == ShoppingCartId);

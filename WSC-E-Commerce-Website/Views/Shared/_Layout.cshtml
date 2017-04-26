@@ -31,10 +31,9 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
-                    {
-                        //this is supposed to be a render action
-                        <li>@Html.ActionLink("Cart (" + ViewData["CartCount"] + ")", "Index", "ShoppingCart", new { id = "cart-status" }, null)</li>
-                    }
+                    {                                     
+                        <li> @{Html.RenderAction("CartSummary","ShoppingCart"); }</li>
+                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

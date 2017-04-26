@@ -7,13 +7,13 @@ namespace WSC_E_Commerce_Website.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initial : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612161040417_initial"; }
+            get { return "201704240758255_initial"; }
         }
         
         string IMigrationMetadata.Source

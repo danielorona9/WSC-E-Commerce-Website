@@ -7,13 +7,13 @@ namespace WSC_E_Commerce_Website.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addforiegnkeytopurchaseorder1 : IMigrationMetadata
+    public sealed partial class change : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addforiegnkeytopurchaseorder1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(change));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612162108476_addforiegnkeytopurchaseorder1"; }
+            get { return "201704251948572_change"; }
         }
         
         string IMigrationMetadata.Source

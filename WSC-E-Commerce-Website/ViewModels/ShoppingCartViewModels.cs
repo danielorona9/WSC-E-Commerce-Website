@@ -11,7 +11,7 @@ namespace WSC_E_Commerce_Website.ViewModels
     {
         public List<PurchaseOrders> CartItems { get; set; }
         public decimal CartTotal { get; set; }
-    
+        public int CartCount { get; set; }
     }
 
     public class ShoppingCartRemoveViewModel

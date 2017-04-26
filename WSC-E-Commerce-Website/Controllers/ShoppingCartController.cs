@@ -22,9 +22,10 @@ namespace WSC_E_Commerce_Website.Controllers
             var viewModel = new ShoppingCartViewModel
             {
                 CartItems = cart.GetCartItems(),
-                CartTotal = cart.GetTotal()
+                CartTotal = cart.GetTotal(),
+                CartCount = cart.GetCount()
             };
-            // Return the view
+       
             return View(viewModel);
         }
 
@@ -45,15 +46,18 @@ namespace WSC_E_Commerce_Website.Controllers
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5      
         [HttpPost]
-        public ActionResult RemoveFromCart(int id)
+        public JsonResult RemoveFromCart(int id)
         {
             // Remove the item from the cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
+
             // Get the name of the album to display confirmation
             string ItemName = db.PurchaseOrders
-                .Single(item => item.RecordId == id).ProductCatalog.SkewNumber.ToString();
+                .Single(item => item.PurchaseOrdersID == id).ProductCatalog.SkewNumber.ToString();
+
             // Remove from cart
             int itemCount = cart.RemoveFromCart(id);
+
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel
             {
@@ -64,18 +68,30 @@ namespace WSC_E_Commerce_Website.Controllers
                 ItemCount = itemCount,
                 DeleteId = id
             };
-            return Json(results);
+            return Json(results, JsonRequestBehavior.AllowGet);
         }
 
-
-        // GET: /ShoppingCart/CartSummary
-       // [ChildActionOnly]
-        public ActionResult CartSummary()
+        [HttpGet]
+        public JsonResult UpdateCartCounter()
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
-           // ViewData["CartCount"] = cart.GetCount();
-            var cartCount = cart.GetCount();
-            return PartialView("CartSummary",cartCount);
+            var CartCount = 0;
+            {
+                CartCount = cart.GetCount();
+            }
+            return Json(CartCount);
+        }
+
+        // GET: /ShoppingCart/CartSummary
+        // [ChildActionOnly]
+        public ActionResult CartSummary()
+        {
+           
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+          
+             ViewData["CartCount"] =  cart.GetCount();
+
+            return PartialView("CartSummary");
         }
     }
 }

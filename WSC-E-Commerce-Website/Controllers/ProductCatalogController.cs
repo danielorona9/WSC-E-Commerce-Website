@@ -4,10 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WSC_E_Commerce_Website.DAL;
 using WSC_E_Commerce_Website.Models;
+using WSC_E_Commerce_Website.ViewModels;
 
 namespace WSC_E_Commerce_Website.Controllers
 {
@@ -20,6 +23,7 @@ namespace WSC_E_Commerce_Website.Controllers
         {
             var productCatalog = db.ProductCatalog.Include(p => p.JobType).Include(p => p.MediaType);
             return View(productCatalog.ToList());
+         
         }
 
         // GET: ProductCatalog/Details/5
@@ -56,19 +60,50 @@ namespace WSC_E_Commerce_Website.Controllers
                     
             return View("ProductDetail", product);
         }
+        //****************************************************
 
-        //GET: CatalogList
+
+        //consumer index Page
+        //GET: ProductCatalog/CatalogList
         public ActionResult CatalogList()
         {
-            var productCatalog = 
+            var productCatalog =
                 db.ProductCatalog
                 .Include(p => p.JobType)
                 .Include(p => p.MediaType);
 
-            return View("Catalog",productCatalog.ToList());
+
+        
+          //  ViewBag.JobTypes = new SelectList(db.JobTypes, "JobTypeID", "JobTypeName");
+
+           // ViewBag.MediaTypeSelected = new SelectList(db.MediaTypes, "MediaTypeID", "MediaTypeName");
+
+            return View("Catalog", productCatalog.ToList());
         }
 
+        ////get catalog list
+        //public ActionResult GetCatalog()
+        //{
+        //    var items = new Catalog();
+        //   var products =  items.GetCatalogItems();
+
+        //    var viewModel = new CatalogViewModel
+        //    {
+        //        Items = items.GetCatalogItems(),
+
+
+        //    };
+        //    //var productCatalog =
+        //    //    db.ProductCatalog
+        //    //        .Include(p => p.JobType)
+        //    //        .Include(p => p.MediaType);
+
+        //    return Json(viewModel, JsonRequestBehavior.AllowGet);
+            
+        //}
+
         //GET: SortByMediaType/id
+
         public ActionResult SortByMediaType(int? id)
         {
             if (id == null)
@@ -84,8 +119,47 @@ namespace WSC_E_Commerce_Website.Controllers
 
             return View("Catalog", product);
         }
-        
 
+        public ActionResult FilterOff()
+        {
+            var product =
+               db.ProductCatalog
+               .Include(p => p.JobType)
+               .Include(p => p.MediaType);
+
+
+            return View("Catalog",product);
+        }
+        public ActionResult SortBy(string JobTypeSelected)
+        {
+            JobTypeSelected = Request.QueryString["JobTypeSelected"].ToString();
+            var id = int.Parse(JobTypeSelected); 
+         
+            var product = db.ProductCatalog
+                .Include(p => p.MediaType)
+                .Include(p => p.JobType)
+                .Where(p => p.JobTypeID == id)
+                .ToList();
+            
+            return View("Catalog", product);
+        }
+
+  
+        public ActionResult SortByMedia(string MediaTypeSelected)
+        {
+            MediaTypeSelected = Request.QueryString["MediaTypeSelected"].ToString();
+            var id = int.Parse(MediaTypeSelected);
+          
+                var product = db.ProductCatalog
+                .Include(p => p.MediaType)
+                .Include(p => p.JobType)
+                .Where(p => p.MediaTypeID == id)
+                .ToList();
+
+                return View("Catalog", product);
+           
+        }
+        //*****************************************************
 
         // GET: ProductCatalog/Create
         public ActionResult Create()

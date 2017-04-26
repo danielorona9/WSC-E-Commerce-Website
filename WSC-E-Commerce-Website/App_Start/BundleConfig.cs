@@ -9,7 +9,9 @@ namespace WSC_E_Commerce_Website
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js", 
+                        "~/Scripts/CustomScripts/Cart.js",
+                        "~/Scripts/CustomScripts/Catalog.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

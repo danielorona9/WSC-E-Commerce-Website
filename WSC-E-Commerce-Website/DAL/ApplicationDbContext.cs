@@ -10,13 +10,12 @@ namespace WSC_E_Commerce_Website.DAL
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+       
         }
 
         public DbSet<BillingInfo> BillingInfos { get; set; }
         public DbSet<CreditCardType> CreditCardTypes { get; set; }
-        public DbSet<PurchaseOrders> PurchaseOrders { get; set; }
-        public DbSet<OrderType> OrderTypes { get; set; }
-        public DbSet<PurchaseOrderStatus> PurchaseOrderStatuses { get; set; }
+        public DbSet<PurchaseOrders> PurchaseOrders { get; set; }    
         public DbSet<Billing> Billings { get; set; }
         public DbSet<ProductCatalog> ProductCatalog { get; set; }
         public DbSet<JobTypes> JobTypes { get; set; }
