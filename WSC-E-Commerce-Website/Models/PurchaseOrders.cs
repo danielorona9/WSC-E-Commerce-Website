@@ -12,7 +12,7 @@ namespace WSC_E_Commerce_Website.Models
         public int PurchaseOrdersID { get; set; }
 
         //TODO Remove RecordId column from database
-        public int RecordId { get; set; }
+        //public int RecordId { get; set; }
 
         public string CartID { get; set; }
 
