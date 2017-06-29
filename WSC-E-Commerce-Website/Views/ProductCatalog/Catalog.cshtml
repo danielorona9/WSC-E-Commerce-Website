@@ -1,6 +1,6 @@
 ﻿@ViewData["JobTypes"]
 @using WSC_E_Commerce_Website.CustomHtmlHelpers
-@model IEnumerable<WSC_E_Commerce_Website.Models.ProductCatalog>
+@model WSC_E_Commerce_Website.ViewModels.CatalogViewModel
 
 @{
     ViewBag.Title = "Catalog";
@@ -9,7 +9,7 @@
 <br/>
 <hr/>
 
-@using (Html.BeginForm("SortBy", "ProductCatalog", FormMethod.Get))
+@using (Html.BeginForm("SortByJobType", "ProductCatalog", FormMethod.Get))
 {
     <div class="form-group">
 
@@ -18,11 +18,10 @@
             <table>
                 <tr>
                     <td>
-                        @Html.DropDownList("JobTypeSelected", new List<SelectListItem>
-                        {
-                            new SelectListItem {Text = "Printing", Value = "1"},
-                            new SelectListItem {Text = "Engraving", Value = "2"}
-                        }, "Select Job Type", new {@class = "form-control"})
+                        @Html.DropDownListFor(m=>m.selectJobTypeId,
+                       new SelectList(Model.JobType, "JobTypeID", "JobTypeName"), "Select Job Type",
+                       new {@class = "form-control"})
+
                     </td>
                     <td>
                         <input type="submit" value="Filter Job Type" class="btn btn-default"/>
@@ -33,6 +32,7 @@
         </div>
     </div>
 }
+
 @using (Html.BeginForm("SortByMedia", "ProductCatalog", FormMethod.Get))
 {
     <div class="form-group">
@@ -41,12 +41,11 @@
             <table>
                 <tr>
                     <td>
-                        @Html.DropDownList("MediaTypeSelected", new List<SelectListItem>
-                        {
-                            new SelectListItem {Text = "Cloth", Value = "1"},
-                            new SelectListItem {Text = "Plaque", Value = "2"},
-                            new SelectListItem {Text = "Trophy", Value = "3"}
-                        }, "Select Media Type", new {@class = "form-control"})</td>
+                      
+                        @Html.DropDownListFor(model => model.selectMediaTypeId,
+                            new SelectList(Model.MediaType, "MediaTypeID", "MediaTypeName"), "Select Media Type",
+                            new {@class = "form-control"})
+                    </td>
                     <td>
                         <input type="submit" value="Filter Media Type" class="btn btn-default"/>
                     </td>
@@ -55,6 +54,7 @@
         </div>
     </div>
 }
+
 @using (Html.BeginForm("FilterOff", "ProductCatalog", FormMethod.Get))
 {
     <div class="form-group">
@@ -74,17 +74,17 @@
 <table class="table">
     <tr>
     <th>
-        @Html.DisplayNameFor(model => model.JobType.JobTypeName)
+        @Html.DisplayNameFor(model => model.JobType) 
 
     </th>
     <th>
-        @Html.DisplayNameFor(model => model.MediaType.MediaTypeName)
+       @* @Html.DisplayNameFor(model => model.MediaType.MediaTypeName)*@<label>Media Type Name</label>
     </th>
     <th>
-        @Html.DisplayNameFor(model => model.Price)
+       @* @Html.DisplayNameFor(model => model.Price)*@<label>Price</label>
     </th>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.Items)
     {
         <tr>
             <td>
