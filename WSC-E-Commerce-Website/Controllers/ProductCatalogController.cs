@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Razor.Generator;
 using System.Web.UI.WebControls;
 using WSC_E_Commerce_Website.DAL;
 using WSC_E_Commerce_Website.Models;
@@ -62,23 +63,20 @@ namespace WSC_E_Commerce_Website.Controllers
         }
         //****************************************************
 
-
         //consumer index Page
         //GET: ProductCatalog/CatalogList
         public ActionResult CatalogList()
         {
-            var productCatalog =
-                db.ProductCatalog
-                .Include(p => p.JobType)
-                .Include(p => p.MediaType);
+            var catalog = new CatalogViewModel
+            {
+                Items = new List<ProductCatalog>(db.ProductCatalog.Include(p => p.JobType).Include(p=>p.MediaType)),
+                JobType = new List<JobTypes>(db.JobTypes).ToList(),            
+                MediaType = new List<MediaTypes>(db.MediaTypes).ToList()            
+           
+            };
+            
 
-
-        
-          //  ViewBag.JobTypes = new SelectList(db.JobTypes, "JobTypeID", "JobTypeName");
-
-           // ViewBag.MediaTypeSelected = new SelectList(db.MediaTypes, "MediaTypeID", "MediaTypeName");
-
-            return View("Catalog", productCatalog.ToList());
+            return View("Catalog", catalog);
         }
 
         ////get catalog list
@@ -106,57 +104,119 @@ namespace WSC_E_Commerce_Website.Controllers
 
         public ActionResult SortByMediaType(int? id)
         {
+           
             if (id == null)
             {
                 return  new HttpStatusCodeResult((HttpStatusCode.BadRequest));
             }
-            var product = 
-                db.ProductCatalog
-                .Include(p => p.MediaType)
-                .Include(p => p.JobType)
-                .Where(p => p.MediaTypeID == id.Value).ToList();
+         
+            var product = new CatalogViewModel()
+            {
+                Items = db.ProductCatalog
+                     .Include(p => p.MediaType)
+                     .Include(p => p.JobType)
+                     .Where(p => p.MediaTypeID == id.Value).ToList(),
 
+                JobType = new List<JobTypes>(db.JobTypes).ToList(),
+
+                MediaType = new List<MediaTypes>(db.MediaTypes).ToList()
+            };
 
             return View("Catalog", product);
         }
 
         public ActionResult FilterOff()
         {
-            var product =
-               db.ProductCatalog
-               .Include(p => p.JobType)
-               .Include(p => p.MediaType);
+        
+            var product = new CatalogViewModel()
+            {
+                Items = db.ProductCatalog
+                    .Include(p => p.JobType)
+                    .Include(p => p.MediaType).ToList(),
 
+                JobType = new List<JobTypes>(db.JobTypes).ToList(),
 
-            return View("Catalog",product);
-        }
-        public ActionResult SortBy(string JobTypeSelected)
-        {
-            JobTypeSelected = Request.QueryString["JobTypeSelected"].ToString();
-            var id = int.Parse(JobTypeSelected); 
-         
-            var product = db.ProductCatalog
-                .Include(p => p.MediaType)
-                .Include(p => p.JobType)
-                .Where(p => p.JobTypeID == id)
-                .ToList();
-            
+                MediaType = new List<MediaTypes>(db.MediaTypes).ToList()
+            };
+
             return View("Catalog", product);
         }
 
-  
-        public ActionResult SortByMedia(string MediaTypeSelected)
+        
+        public ActionResult SortByJobType(CatalogViewModel model)
         {
-            MediaTypeSelected = Request.QueryString["MediaTypeSelected"].ToString();
-            var id = int.Parse(MediaTypeSelected);
-          
-                var product = db.ProductCatalog
-                .Include(p => p.MediaType)
-                .Include(p => p.JobType)
-                .Where(p => p.MediaTypeID == id)
-                .ToList();
+            try
+            {
+                var id = model.selectJobTypeId;
 
-                return View("Catalog", product);
+                if (id == 0)
+                {
+                    return RedirectToAction("CatalogList");
+                }
+                else
+                {
+                    var product = new CatalogViewModel()
+                    {
+                        Items = db.ProductCatalog
+                            .Include(p => p.MediaType)
+                            .Include(p => p.JobType)
+                            .Where(p => p.JobTypeID == id).ToList(),
+
+                        JobType = new List<JobTypes>(db.JobTypes).ToList(),
+
+                        MediaType = new List<MediaTypes>(db.MediaTypes).ToList()
+                    };
+
+                    return View("Catalog", product);
+                }
+              
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);            
+                throw;
+            
+
+            }
+       
+        }
+     
+        
+        public ActionResult SortByMedia(CatalogViewModel model)
+        {
+          
+          var id = model.selectMediaTypeId;
+
+            try
+            {
+                if (id == 0)
+                {
+                    return RedirectToAction("CatalogList");
+                }
+                else
+                {
+                    var product = new CatalogViewModel()
+                    {
+                        Items = db.ProductCatalog
+                            .Include(p => p.MediaType)
+                            .Include(p => p.JobType)
+                            .Where(p => p.MediaTypeID == id).ToList(),
+
+                        JobType = new List<JobTypes>(db.JobTypes).ToList(),
+
+                        MediaType = new List<MediaTypes>(db.MediaTypes).ToList()
+
+                    };
+
+                    return View("Catalog", product);
+                }             
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+      
            
         }
         //*****************************************************
